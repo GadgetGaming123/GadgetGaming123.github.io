@@ -8,6 +8,7 @@
             background-size: cover; /* Make the image cover the entire body */
             color: white; /* This changes the text color so it's visible against the black background */
             display: flex;
+            flex-direction: column; /* Changed to column to stack elements vertically */
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,10 +19,15 @@
             height: 1000px;
             background-color: #1b1b1b;
         }
+        .header {
+            width: 50%; /* Adjust as needed */
+            text-align: center; /* Center the image */
+        }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 <body>
+    <img src="websiteheader.png" class="header"> <!-- Added this line to include the header image -->
     <div class="grey-square"></div>
 </body>
 </html>
