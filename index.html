@@ -13,15 +13,20 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative; /* Added this line to position the header image */
         }
         .grey-square {
             width: 700px;
             height: 1000px;
             background-color: #1b1b1b;
+            z-index: 1; /* Added this line to bring the grey square to the front */
         }
         .header {
             width: 30%; /* Reduced the width to 30% */
             text-align: center; /* Center the image */
+            position: absolute; /* Added this line to position the header image */
+            top: 0; /* Added this line to position the header image at the top */
+            z-index: 2; /* Added this line to bring the header image to the front */
         }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
