@@ -36,6 +36,13 @@
             bottom: 89%; /* Adjust this value to position the newlogo image lower */
             z-index: 3; /* Added this line to bring the newlogo image to the front */
         }
+        .youtube-video {
+            width: 560px;
+            height: 315px;
+            position: absolute; /* Added this line to position the YouTube video */
+            top: 20%; /* Adjust this value to position the YouTube video higher or lower */
+            z-index: 4; /* Added this line to bring the YouTube video to the front */
+        }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
@@ -43,6 +50,6 @@
     <img src="websiteheader.png" class="header"> <!-- Added this line to include the header image -->
     <div class="grey-square"></div>
     <img src="NEWLOGO.png" class="newlogo"> <!-- Added this line to include the newlogo image -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="youtube-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
