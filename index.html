@@ -4,70 +4,72 @@
     <title>GadgetTech</title>
     <style>
         body {
-            background-image: url('websitebackground.png'); /* Set the background image for the body */
-            background-size: cover; /* Make the image cover the entire body */
-            color: white; /* This changes the text color so it's visible against the black background */
+            background-image: url('websitebackground.png');
+            background-size: cover;
+            color: white;
             display: flex;
-            flex-direction: column; /* Changed to column to stack elements vertically */
-            justify-content: flex-start; /* Align items to the start of the page */
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             height: 300vh;
             margin: 0;
-            position: relative; /* Added this line to position the header image */
+            position: relative;
         }
         .grey-square {
             width: 700px;
             height: 2000px;
             background-color: #1b1b1b;
-            position: absolute; /* Added this line to position the grey square */
-            top: 0; /* Added this line to position the grey square at the top */
-            z-index: 1; /* Added this line to bring the grey square to the front */
+            position: absolute;
+            top: 0;
+            z-index: 1;
         }
         .header {
-            width: 37.8%; /* Reduced the width to 30% */
-            text-align: center; /* Center the image */
-            position: absolute; /* Added this line to position the header image */
-            top: 0; /* Added this line to position the header image at the top */
-            z-index: 2; /* Added this line to bring the header image to the front */
+            width: 37.8%;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            z-index: 2;
         }
         .newlogo {
-            width: 10%; /* Set the width to 100% */
-            position: absolute; /* Added this line to position the newlogo image */
-            bottom: 89%; /* Adjust this value to position the newlogo image lower */
-            z-index: 3; /* Added this line to bring the newlogo image to the front */
+            width: 10%;
+            position: absolute;
+            bottom: 89%;
+            z-index: 3;
         }
         .youtube-video {
             width: 560px;
             height: 315px;
-            position: absolute; /* Added this line to position the YouTube video */
-            top: 12%; /* Adjust this value to position the YouTube video higher or lower */
-            z-index: 4; /* Added this line to bring the YouTube video to the front */
+            position: absolute;
+            top: 12%;
+            z-index: 4;
         }
         .custom-text {
-            color: white; /* Set the text color to white */
-            position: absolute; /* Added this line to position the text */
-            top: 25%; /* Adjust this value to position the text higher or lower */
-            z-index: 5; /* Added this line to bring the text to the front */
-            font-family: 'Calibri', sans-serif; /* Added this line to change the font to Calibri */
-            font-weight: bold; /* Added this line to make the text bold */
+            color: white;
+            position: absolute;
+            top: 25%;
+            z-index: 5;
+            font-family: 'Calibri', sans-serif;
+            font-weight: bold;
         }
         .custom-image {
-            width: 200px; /* Set a fixed width to make the image smaller */
-            height: auto; /* Set the height to auto to maintain the aspect ratio */
-            position: absolute; /* Added this line to position the image */
-            top: 28%; /* Adjust this value to position the image higher */
-            z-index: 6; /* Added this line to bring the image to the front */
-            border: 3px solid white; /* Added this line to add a border to the image */
+            width: 200px;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            border: 3px solid white;
         }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 <body>
-    <img src="websiteheader.png" class="header"> <!-- Added this line to include the header image -->
+    <img src="websiteheader.png" class="header">
     <div class="grey-square"></div>
-    <img src="NEWLOGO.png" class="newlogo"> <!-- Added this line to include the newlogo image -->
+    <img src="NEWLOGO.png" class="newlogo">
     <iframe class="youtube-video" src="https://www.youtube.com/embed/yJFyVYb59mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p class="custom-text">Custom Player Models</p> <!-- Added this line to include the custom text -->
-    <img src="websiteMVGADGET.png" class="custom-image"> <!-- Added this line to include the custom image -->
+    <p class="custom-text">Custom Player Models</p>
+    <img src="websiteMVGADGET.png" class="custom-image">
 </body>
 </html>
