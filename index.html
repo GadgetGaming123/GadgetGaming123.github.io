@@ -117,9 +117,18 @@
             width: 200px;
             height: auto;
             position: absolute;
-            top: 44%; /* Adjust this value to position the SCP image below "greg" */
+            top: 50%; /* Adjust this value to position the SCP image below "greg" */
             left: 50%;
             transform: translateX(-50%);
+            z-index: 8; /* Ensure it's above other elements */
+            border: 3px solid white;
+        }
+        .gif-image {
+            width: 200px;
+            height: auto;
+            position: absolute;
+            top: 50%; /* Adjust this value to position the GIF image */
+            left: 56.5%; /* Adjust this value to position the GIF image */
             z-index: 8; /* Ensure it's above other elements */
             border: 3px solid white;
         }
@@ -141,5 +150,7 @@
     <img src="websitemv.png" class="custom-image-normal">
     <!-- SCP Image -->
     <img src="websitescp079.png" class="scp-image">
+    <!-- GIF Image -->
+    <img src="Websitesculkborn.gif" class="gif-image">
 </body>
 </html>
