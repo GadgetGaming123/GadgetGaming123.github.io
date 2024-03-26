@@ -113,6 +113,16 @@
             top: 30%; /* Adjust this value to move the image downwards */
             z-index: 7;
         }
+        .scp-image {
+            width: 200px;
+            height: auto;
+            position: absolute;
+            top: 45%; /* Adjust this value to position the SCP image */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 8; /* Ensure it's above other elements */
+            border: 3px solid white;
+        }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
@@ -129,5 +139,7 @@
     <img src="websitecaleb.png" class="custom-image-below-right">
     <img src="websitenewton.png" class="custom-image-below-left">
     <img src="websitemv.png" class="custom-image-normal">
+    <!-- SCP Image -->
+    <img src="websitescp079.png" class="scp-image">
 </body>
 </html>
