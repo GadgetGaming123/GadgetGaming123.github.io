@@ -24,11 +24,10 @@
             z-index: 1;
         }
         .header {
-            width: 37.8%;
-            text-align: center;
+            width: 100%;
             position: absolute;
             top: 0;
-            z-index: 2;
+            z-index: 10; /* Adjusted to be on top */
         }
         .newlogo {
             width: 10%;
@@ -141,10 +140,19 @@
             z-index: 8;
             border: 3px solid white;
         }
+        /* Adjustments for the header image */
+        .header-image {
+            width: 20%; /* Adjust the size as needed */
+            position: absolute;
+            top: 5%; /* Adjust the top position */
+            left: 5%; /* Adjust the left position */
+            z-index: 11; /* Ensure it's above other elements */
+        }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 <body>
+    <img src="headercg.png" class="header-image"> <!-- Added Header Image -->
     <img src="websiteheader.png" class="header">
     <div class="grey-square"></div>
     <img src="NEWLOGO.png" class="newlogo">
@@ -163,7 +171,5 @@
     <img src="websitesculkborn.gif" class="gif-image">
     <!-- Necromancer Image -->
     <img src="websitenecromancer.png" class="necromancer-image">
-    <!-- Header Image -->
-    <img src="headercg.png"> <!-- Added Header Image -->
 </body>
 </html>
