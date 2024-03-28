@@ -7,132 +7,67 @@
             background-image: url('websitebackground.png');
             background-size: cover;
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: auto; /* Adjusted height */
             margin: 0;
-            position: relative;
+            padding: 0;
+            font-family: 'Calibri', sans-serif;
         }
-        .grey-square {
-            width: 50%; /* Adjusted width */
-            height: 100vh; /* Adjusted height */
-            background-color: #1b1b1b;
-            position: absolute;
-            top: 0;
-            z-index: 1;
-        }
-        .header {
-            width: 100%; /* Adjusted width */
-            position: absolute;
-            top: 0;
-            z-index: 2;
-        }
-        .newlogo {
-            width: 10%;
-            position: absolute;
-            bottom: 10vh; /* Adjusted bottom */
-            z-index: 3;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .youtube-video {
-            width: 50%; /* Adjusted width */
-            max-width: 560px; /* Added max-width */
-            height: auto; /* Adjusted height */
-            position: absolute;
-            top: 12%; /* Adjusted top */
-            z-index: 4;
+            width: 100%;
+            max-width: 560px;
+            height: auto;
+            margin-bottom: 20px;
         }
         .custom-text {
-            color: white;
-            position: absolute;
-            top: 25%;
-            z-index: 5;
-            font-family: 'Calibri', sans-serif;
-            font-weight: bold;
-        }
-        .custom-image, .custom-image-right, .custom-image-left,
-        .custom-image-below, .custom-image-below-right, .custom-image-below-left,
-        .custom-image-normal, .scp-image, .gif-image, .necromancer-image {
-            width: 20%; /* Adjusted width */
-            height: auto; /* Adjusted height */
-            position: absolute;
-            z-index: 6;
-            border: 3px solid white;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         .custom-image {
-            top: 28%;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 0 auto 20px;
         }
-        .custom-image-right {
-            top: 28%;
-            left: 56.5%;
-        }
-        .custom-image-left {
-            top: 28%;
-            left: 32.5%;
-        }
-        .custom-image-below {
-            top: 36%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .custom-image-below-right {
-            top: 36%;
-            left: 56.5%;
-        }
-        .custom-image-below-left {
-            top: 36%;
-            left: 32.5%;
-        }
-        .custom-image-normal {
-            left: 2%; /* Adjusted left */
-            top: 30%;
-        }
-        .scp-image {
-            top: 44%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .gif-image {
-            top: 44%;
-            left: 56.5%;
-        }
-        .necromancer-image {
-            top: 44%;
-            left: 32.5%;
-        }
+        /* Add more styles for other images as needed */
         /* Adjustments for the header image */
         .header-image {
-            width: 23%; /* Adjust the size as needed */
-            position: absolute;
-            top: 0.05%; /* Adjust the top position */
-            left: 27%; /* Adjust the left position */
-            z-index: 10; /* Ensure it's above other elements */
+            width: 100%;
+            max-width: 300px; /* Adjust the size as needed */
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px; /* Adjust spacing */
         }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 <body>
-    <img src="headercg.png" class="header-image"> <!-- Added Header Image -->
-    <img src="websiteheader.png" class="header" width="100%"> <!-- Adjusted width -->
-    <div class="grey-square"></div>
-    <img src="NEWLOGO.png" class="newlogo">
-    <iframe class="youtube-video" src="https://www.youtube.com/embed/yJFyVYb59mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p class="custom-text">Custom Player Models</p>
-    <img src="websitemvgadget.gif" class="custom-image">
-    <img src="websitetripod.png" class="custom-image-right">
-    <img src="cameraguymodels.gif" class="custom-image-left"> <!-- Replaced with GIF -->
-    <img src="websitegreg.png" class="custom-image-below">
-    <img src="websitecaleb.png" class="custom-image-below-right">
-    <img src="websitenewton.png" class="custom-image-below-left">
-    <img src="websitemv.png" class="custom-image-normal">
-    <!-- SCP Image -->
-    <img src="websitescp079.png" class="scp-image">
-    <!-- GIF Image -->
-    <img src="websitesculkborn.gif" class="gif-image">
-    <!-- Necromancer Image -->
-    <img src="websitenecromancer.png" class="necromancer-image">
+    <div class="container">
+        <img src="headercg.png" class="header-image"> <!-- Added Header Image -->
+        <img src="websiteheader.png" class="header" width="100%"> <!-- Adjusted width -->
+        <div class="grey-square"></div>
+        <img src="NEWLOGO.png" class="newlogo">
+        <iframe class="youtube-video" src="https://www.youtube.com/embed/yJFyVYb59mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="custom-text">Custom Player Models</p>
+        <img src="websitemvgadget.gif" class="custom-image">
+        <img src="websitetripod.png" class="custom-image">
+        <img src="cameraguymodels.gif" class="custom-image"> <!-- Replaced with GIF -->
+        <img src="websitegreg.png" class="custom-image">
+        <img src="websitecaleb.png" class="custom-image">
+        <img src="websitenewton.png" class="custom-image">
+        <img src="websitemv.png" class="custom-image">
+        <!-- SCP Image -->
+        <img src="websitescp079.png" class="custom-image">
+        <!-- GIF Image -->
+        <img src="websitesculkborn.gif" class="custom-image">
+        <!-- Necromancer Image -->
+        <img src="websitenecromancer.png" class="custom-image">
+    </div>
 </body>
 </html>
