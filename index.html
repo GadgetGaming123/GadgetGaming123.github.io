@@ -16,24 +16,57 @@
             margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
+            position: relative;
         }
         .youtube-video {
             width: 100%;
             max-width: 560px;
             height: auto;
             margin-bottom: 20px;
+            position: absolute;
+            top: 12%;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .custom-text {
             text-align: center;
             font-size: 24px;
-            margin-bottom: 20px;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .custom-image {
-            display: block;
-            width: 100%;
-            max-width: 400px;
+            width: 200px;
             height: auto;
-            margin: 0 auto 20px;
+            position: absolute;
+            border: 3px solid white;
+        }
+        .custom-image:nth-child(1) {
+            top: 28%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .custom-image:nth-child(2) {
+            top: 28%;
+            left: 56.5%;
+        }
+        .custom-image:nth-child(3) {
+            top: 28%;
+            left: 32.5%;
+        }
+        .custom-image:nth-child(4) {
+            top: 36%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .custom-image:nth-child(5) {
+            top: 36%;
+            left: 56.5%;
+        }
+        .custom-image:nth-child(6) {
+            top: 36%;
+            left: 32.5%;
         }
         /* Add more styles for other images as needed */
         /* Adjustments for the header image */
@@ -41,8 +74,9 @@
             width: 100%;
             max-width: 300px; /* Adjust the size as needed */
             display: block;
-            margin: 0 auto;
-            margin-bottom: 20px; /* Adjust spacing */
+            position: absolute;
+            top: 0.05%;
+            left: 27%;
         }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
