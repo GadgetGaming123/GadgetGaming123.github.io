@@ -16,11 +16,12 @@
             position: relative;
         }
         .grey-square {
-            width: 700px;
-            height: 2000px;
+            width: 20vw; /* Set width using viewport width */
+            height: 20vh; /* Set height using viewport height */
             background-color: #1b1b1b;
             position: absolute;
-            top: 0;
+            top: 5%; /* Adjust as needed */
+            left: 40%; /* Adjust as needed */
             z-index: 1;
         }
         .header {
@@ -51,7 +52,7 @@
             font-weight: bold;
         }
         .custom-image {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 28%;
@@ -61,7 +62,7 @@
             border: 3px solid white;
         }
         .custom-image-right {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 28%;
@@ -70,7 +71,7 @@
             border: 3px solid white;
         }
         .custom-image-left {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 28%;
@@ -79,7 +80,7 @@
             border: 3px solid white;
         }
         .custom-image-below {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 36%;
@@ -89,7 +90,7 @@
             border: 3px solid white;
         }
         .custom-image-below-right {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 36%;
@@ -98,7 +99,7 @@
             border: 3px solid white;
         }
         .custom-image-below-left {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 36%;
@@ -107,15 +108,13 @@
             border: 3px solid white;
         }
         .custom-image-normal {
-            width: 15%; /* Adjust the size as needed */
-            height: auto;
             position: absolute;
             left: -2%;
             top: 30%;
             z-index: 7;
         }
         .scp-image {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 44%;
@@ -125,7 +124,7 @@
             border: 3px solid white;
         }
         .gif-image {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 44%;
@@ -134,7 +133,7 @@
             border: 3px solid white;
         }
         .necromancer-image {
-            width: 15%; /* Adjust the size as needed */
+            width: 200px;
             height: auto;
             position: absolute;
             top: 44%;
@@ -144,18 +143,11 @@
         }
         /* Adjustments for the header image */
         .header-image {
-            width: 23%; /* Adjust the size as needed */
+            width: 23%;
             position: absolute;
-            top: 0.05%; /* Adjust the top position */
-            left: 27%; /* Adjust the left position */
-            z-index: 10; /* Ensure it's above other elements */
-        }
-
-        /* Media queries for responsive design */
-        @media screen and (max-width: 768px) {
-            .custom-image, .custom-image-right, .custom-image-left, .custom-image-below, .custom-image-below-right, .custom-image-below-left, .custom-image-normal, .scp-image, .gif-image, .necromancer-image {
-                width: 30%; /* Adjust the size as needed for smaller screens */
-            }
+            top: 0.05%;
+            left: 27%;
+            z-index: 10;
         }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
