@@ -11,20 +11,20 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            height: 300vh;
+            height: auto; /* Adjusted height */
             margin: 0;
             position: relative;
         }
         .grey-square {
-            width: 700px;
-            height: 2000px;
+            width: 50%; /* Adjusted width */
+            height: 100vh; /* Adjusted height */
             background-color: #1b1b1b;
             position: absolute;
             top: 0;
             z-index: 1;
         }
         .header {
-            width: 37.8%;
+            width: 100%; /* Adjusted width */
             position: absolute;
             top: 0;
             z-index: 2;
@@ -32,14 +32,15 @@
         .newlogo {
             width: 10%;
             position: absolute;
-            bottom: 89%;
+            bottom: 10vh; /* Adjusted bottom */
             z-index: 3;
         }
         .youtube-video {
-            width: 560px;
-            height: 315px;
+            width: 50%; /* Adjusted width */
+            max-width: 560px; /* Added max-width */
+            height: auto; /* Adjusted height */
             position: absolute;
-            top: 12%;
+            top: 12%; /* Adjusted top */
             z-index: 4;
         }
         .custom-text {
@@ -50,95 +51,57 @@
             font-family: 'Calibri', sans-serif;
             font-weight: bold;
         }
-        .custom-image {
-            width: 200px;
-            height: auto;
+        .custom-image, .custom-image-right, .custom-image-left,
+        .custom-image-below, .custom-image-below-right, .custom-image-below-left,
+        .custom-image-normal, .scp-image, .gif-image, .necromancer-image {
+            width: 20%; /* Adjusted width */
+            height: auto; /* Adjusted height */
             position: absolute;
+            z-index: 6;
+            border: 3px solid white;
+        }
+        .custom-image {
             top: 28%;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 6;
-            border: 3px solid white;
         }
         .custom-image-right {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 28%;
             left: 56.5%;
-            z-index: 6;
-            border: 3px solid white;
         }
         .custom-image-left {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 28%;
             left: 32.5%;
-            z-index: 6;
-            border: 3px solid white;
         }
         .custom-image-below {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 36%;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 6;
-            border: 3px solid white;
         }
         .custom-image-below-right {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 36%;
             left: 56.5%;
-            z-index: 6;
-            border: 3px solid white;
         }
         .custom-image-below-left {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 36%;
             left: 32.5%;
-            z-index: 6;
-            border: 3px solid white;
         }
         .custom-image-normal {
-            position: absolute;
-            left: -2%;
+            left: 2%; /* Adjusted left */
             top: 30%;
-            z-index: 7;
         }
         .scp-image {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 44%;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 8;
-            border: 3px solid white;
         }
         .gif-image {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 44%;
             left: 56.5%;
-            z-index: 8;
-            border: 3px solid white;
         }
         .necromancer-image {
-            width: 200px;
-            height: auto;
-            position: absolute;
             top: 44%;
             left: 32.5%;
-            z-index: 8;
-            border: 3px solid white;
         }
         /* Adjustments for the header image */
         .header-image {
