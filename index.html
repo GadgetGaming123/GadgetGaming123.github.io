@@ -111,10 +111,14 @@
             border: 3px solid white;
         }
         .custom-image-normal {
+            width: 10%; /* Set width to 10% of the viewport width */
+            height: auto; /* Maintain aspect ratio */
             position: absolute;
-            left: -2%;
-            top: 30%;
-            z-index: 7;
+            top: 30%; /* Adjust top position */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+            border: 3px solid white;
         }
         .scp-image {
             width: 200px;
