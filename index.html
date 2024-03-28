@@ -38,10 +38,10 @@
             z-index: 3;
         }
         .youtube-video {
-            width: 35%;
-            height: 13%;
+            width: 35%; /* Set width to occupy 70% of the viewport */
+            height: 13%; /* Set a fixed height */
             position: absolute;
-            top: 12%;
+            top: 12%; /* Adjust top position */
             left: 50%;
             transform: translateX(-50%);
             z-index: 4;
@@ -55,16 +55,14 @@
             font-weight: bold;
         }
         .custom-image {
-            width: 15%; /* Set width to occupy 15% of the viewport */
-            height: auto; /* Maintain aspect ratio */
+            width: 200px;
+            height: auto;
             position: absolute;
-            top: 55%; /* Adjust top position */
+            top: 28%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 6;
-        }
-        .custom-image img {
-            border: none; /* Remove border */
+            border: 3px solid white;
         }
         .custom-image-right {
             width: 200px;
@@ -73,7 +71,7 @@
             top: 28%;
             left: 56.5%;
             z-index: 6;
-            border: 3px solid white; /* Keep border */
+            border: 3px solid white;
         }
         .custom-image-left {
             width: 200px;
@@ -82,7 +80,7 @@
             top: 28%;
             left: 32.5%;
             z-index: 6;
-            border: 3px solid white; /* Keep border */
+            border: 3px solid white;
         }
         .custom-image-below {
             width: 200px;
@@ -92,7 +90,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 6;
-            border: 3px solid white; /* Keep border */
+            border: 3px solid white;
         }
         .custom-image-below-right {
             width: 200px;
@@ -101,7 +99,7 @@
             top: 36%;
             left: 56.5%;
             z-index: 6;
-            border: 3px solid white; /* Keep border */
+            border: 3px solid white;
         }
         .custom-image-below-left {
             width: 200px;
@@ -110,7 +108,7 @@
             top: 36%;
             left: 32.5%;
             z-index: 6;
-            border: 3px solid white; /* Keep border */
+            border: 3px solid white;
         }
         .custom-image-normal {
             position: absolute;
@@ -164,14 +162,13 @@
     <img src="NEWLOGO.png" class="newlogo">
     <iframe class="youtube-video" src="https://www.youtube.com/embed/yJFyVYb59mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <p class="custom-text">Custom Player Models</p>
-    <div class="custom-image">
-        <img src="websitemvgadget.gif" style="border: 3px solid white;">
-    </div>
+    <img src="websitemvgadget.gif" class="custom-image">
     <img src="websitetripod.png" class="custom-image-right">
     <img src="cameraguymodels.gif" class="custom-image-left"> <!-- Replaced with GIF -->
     <img src="websitegreg.png" class="custom-image-below">
     <img src="websitecaleb.png" class="custom-image-below-right">
     <img src="websitenewton.png" class="custom-image-below-left">
+    <img src="websitemv.png" class="custom-image-normal">
     <!-- SCP Image -->
     <img src="websitescp079.png" class="scp-image">
     <!-- GIF Image -->
@@ -180,3 +177,4 @@
     <img src="websitenecromancer.png" class="necromancer-image">
 </body>
 </html>
+
