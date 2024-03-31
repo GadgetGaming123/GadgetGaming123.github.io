@@ -63,15 +63,23 @@
             font-weight: bold;
         }
         .custom-image {
-            width: 200px;
-            height: auto;
+            width: 10.73%; /* Adjust this value for desired width */
             position: absolute;
-            top: 28%;
-            left: 50%;
+            top: 28%; /* Adjust top position */
+            left: 50%; /* Adjust left position */
             transform: translateX(-50%);
-            z-index: 6;
-            border: 3px solid white;
+            z-index: 6; /* Ensure it's above other elements */
+            border: 3px solid white; /* Add border */
+
+            /* Media query for smaller screens */
+            @media screen and (max-width: 768px) {
+                width: 15%; /* Adjust width for smaller screens */
+                top: 30%; /* Adjust top position for smaller screens */
+                left: 50%; /* Adjust left position for smaller screens */
+                transform: translateX(-50%); /* Adjust centering for smaller screens */
+            }
         }
+
         .custom-image-right {
             width: 10.73%; /* Adjust this value for desired width */
             position: absolute;
