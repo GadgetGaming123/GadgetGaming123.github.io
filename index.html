@@ -54,6 +54,18 @@
             transform: translateX(-50%);
             z-index: 4;
         }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .youtube-video {
+                width: 70%; /* Adjust width for smaller screens */
+                height: auto; /* Allow height to adjust according to aspect ratio */
+                top: 20%; /* Adjust top position for smaller screens */
+                left: 50%; /* Adjust left position for smaller screens */
+                transform: translateX(-50%); /* Adjust centering for smaller screens */
+            }
+        }
+
         .custom-text {
             color: white;
             position: absolute;
