@@ -61,11 +61,10 @@
             width: 35%; /* Set width to occupy 70% of the viewport */
             height: 13%; /* Set a fixed height */
             position: absolute;
-            top: 50%; /* Adjust top position */
+            top: 12%; /* Adjust top position */
             left: 50%;
             transform: translateX(-50%);
             z-index: 4;
-            font-size: 24px; /* Adjust this value for desired font size */
         }
 
         /* Media query for smaller screens */
@@ -82,21 +81,11 @@
         .custom-text {
             color: white;
             position: absolute;
-            top: 50px; /* Adjust this value to position the text lower */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%);
+            top: 25%;
             z-index: 5;
+            font-family: 'Calibri', sans-serif;
+            font-weight: bold;
         }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .custom-text {
-                top: 50px; /* Adjust this value to position the text lower */
-                left: 50%; /* Center horizontally */
-                transform: translateX(-50%);
-            }
-        }
-
         .custom-image {
             width: 10.73%; /* Adjust this value for desired width */
             position: absolute;
