@@ -254,6 +254,24 @@
     }
 }
 
+.custom-image-fisherman {
+    width: 10.73%; /* Adjust this value for desired width */
+    position: absolute;
+    top: 52%; /* Align with Cave Dweller */
+    left: 50%; /* Align with SCP 079 */
+    transform: translateX(-50%);
+    z-index: 9; /* Ensure it's above other elements */
+    border: 3px solid white; /* Add border */
+
+    /* Media query for smaller screens */
+    @media screen and (max-width: 768px) {
+        width: 15%; /* Adjust width for smaller screens */
+        top: 40%; /* Adjust top position for smaller screens */
+        left: 50%; /* Adjust left position for smaller screens */
+        transform: translate(-50%, -50%); /* Adjust centering for smaller screens */
+    }
+}
+
 /* Adjustments for the header image */
 .header-image {
     width: 23%;
@@ -296,5 +314,7 @@
     <img src="websitenecromancer.png" class="necromancer-image">
     <!-- Cave Dweller Image -->
     <img src="websitecavedweller.png" class="custom-image-cavedweller">
+    <!-- Fisherman -->
+    <img src="websitefisherman.png" class="custom-image-fisherman">
 </body>
 </html>
