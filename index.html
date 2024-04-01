@@ -81,11 +81,23 @@
         .custom-text {
             color: white;
             position: absolute;
-            top: 25%;
+            top: 25%; /* Adjust top position */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%);
             z-index: 5;
-            font-family: 'Calibri', sans-serif;
+            font-family: 'Calibri', sans-serif; /* Use the same font */
             font-weight: bold;
+            font-size: 24px; /* Adjust font size as needed */
         }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .custom-text {
+                top: 25%; /* Adjust top position for smaller screens */
+                font-size: 18px; /* Adjust font size for smaller screens */
+            }
+        }
+
         .custom-image {
             width: 10.73%; /* Adjust this value for desired width */
             position: absolute;
