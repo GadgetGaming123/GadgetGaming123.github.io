@@ -81,11 +81,21 @@
         .custom-text {
             color: white;
             position: absolute;
-            top: 25%;
+            top: 50px; /* Adjust this value to position the text lower */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%);
             z-index: 5;
-            font-family: 'Calibri', sans-serif;
-            font-weight: bold;
         }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .custom-text {
+                top: 50px; /* Adjust this value to position the text lower */
+                left: 50%; /* Center horizontally */
+                transform: translateX(-50%);
+            }
+        }
+
         .custom-image {
             width: 10.73%; /* Adjust this value for desired width */
             position: absolute;
