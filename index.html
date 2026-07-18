@@ -331,14 +331,13 @@
         padding: 14px 24px;
         gap: 10px;
         flex-wrap: nowrap;
-        overflow-x: auto;
     }
 
     .social-group {
         display: flex;
         gap: 22px;
         flex-wrap: nowrap;
-        flex-shrink: 0;
+        min-width: 0;
     }
 
     .social-group-right {
@@ -348,24 +347,23 @@
 
     .social-center-spacer {
         flex: 0 0 18%;
-        min-width: 60px;
+        min-width: 20px;
     }
 
     @media screen and (max-width: 768px) {
-        .social-center-spacer { display: none; }
-        .social-item .social-handle { display: none; }
-        .social-icon { width: 22px; height: 22px; }
-        .social-group { gap: 10px; }
-        .social-group-right { gap: 10px; }
-        .social-bar { padding: 10px 14px; }
+        .social-center-spacer { flex: 0 0 8%; min-width: 0; }
+        .social-bar { padding: 8px 10px; gap: 4px; }
+        .social-group { gap: clamp(4px, 2vw, 14px); }
+        .social-group-right { gap: clamp(4px, 2vw, 10px); }
     }
 
     .social-item {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: clamp(4px, 1vw, 10px);
         text-decoration: none;
         transition: opacity 0.15s ease, transform 0.15s ease;
+        min-width: 0;
     }
 
     .social-item:hover {
@@ -374,27 +372,36 @@
     }
 
     .social-icon {
-        width: 28px;
-        height: 28px;
+        width: clamp(16px, 2.2vw, 28px);
+        height: clamp(16px, 2.2vw, 28px);
         object-fit: contain;
+        flex-shrink: 0;
     }
 
     .social-item .social-text {
         display: flex;
         flex-direction: column;
         line-height: 1.2;
+        min-width: 0;
+        overflow: hidden;
     }
 
     .social-item .social-name {
         color: #ffffff;
-        font-size: 13px;
+        font-size: clamp(9px, 1.4vw, 13px);
         font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .social-item .social-handle {
         color: var(--text-dim);
         font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
+        font-size: clamp(8px, 1.1vw, 11px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .youtube-video {
