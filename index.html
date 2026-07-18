@@ -331,6 +331,8 @@
         padding: 14px 24px;
         gap: 10px;
         flex-wrap: nowrap;
+        container-type: inline-size;
+        container-name: social-bar;
     }
 
     .social-group {
@@ -355,6 +357,19 @@
         .social-bar { padding: 8px 10px; gap: 4px; }
         .social-group { gap: clamp(4px, 2vw, 14px); }
         .social-group-right { gap: clamp(4px, 2vw, 10px); }
+    }
+
+    @container social-bar (max-width: 560px) {
+        .social-item .social-text {
+            display: none;
+        }
+        .social-icon {
+            width: 24px;
+            height: 24px;
+        }
+        .social-item {
+            gap: 0;
+        }
     }
 
     .social-item {
@@ -469,21 +484,21 @@
     <div class="social-wrap">
         <div class="social-bar">
             <div class="social-group">
-                <a href="https://discord.com/users/gadget103" target="_blank" rel="noopener noreferrer" class="social-item">
+                <a href="https://discord.com/users/gadget103" target="_blank" rel="noopener noreferrer" class="social-item" title="Discord: @gadget103">
                     <img src="discord-icon.png" class="social-icon" alt="Discord">
                     <span class="social-text">
                         <span class="social-name">Gadget</span>
                         <span class="social-handle">@gadget103</span>
                     </span>
                 </a>
-                <a href="https://steamcommunity.com/id/Gadget103/" target="_blank" rel="noopener noreferrer" class="social-item">
+                <a href="https://steamcommunity.com/id/Gadget103/" target="_blank" rel="noopener noreferrer" class="social-item" title="Steam: id/gadget103">
                     <img src="steam-icon.png" class="social-icon" alt="Steam">
                     <span class="social-text">
                         <span class="social-name">Gadget</span>
                         <span class="social-handle">id/gadget103</span>
                     </span>
                 </a>
-                <a href="https://namemc.com/profile/Gadget123.1" target="_blank" rel="noopener noreferrer" class="social-item">
+                <a href="https://namemc.com/profile/Gadget123.1" target="_blank" rel="noopener noreferrer" class="social-item" title="Minecraft: Gadget123">
                     <img src="minecraft-icon.png" class="social-icon" alt="Minecraft" style="width: 56px; height: 56px;">
                     <span class="social-text">
                         <span class="social-name">Gadget123</span>
@@ -492,20 +507,20 @@
             </div>
             <div class="social-center-spacer"></div>
             <div class="social-group social-group-right">
-                <a href="https://www.roblox.com/users/5421651897/profile" target="_blank" rel="noopener noreferrer" class="social-item">
+                <a href="https://www.roblox.com/users/5421651897/profile" target="_blank" rel="noopener noreferrer" class="social-item" title="Roblox: @gadgethatesroblox2">
                     <img src="diamond-icon.png" class="social-icon" alt="Roblox">
                     <span class="social-text">
                         <span class="social-handle">@gadgethatesroblox2</span>
                     </span>
                 </a>
-                <a href="https://www.youtube.com/@GadgetGaming2" target="_blank" rel="noopener noreferrer" class="social-item">
+                <a href="https://www.youtube.com/@GadgetGaming2" target="_blank" rel="noopener noreferrer" class="social-item" title="YouTube: @GadgetGaming2">
                     <img src="youtube-icon.png" class="social-icon" alt="YouTube">
                     <span class="social-text">
                         <span class="social-name">Gadget</span>
                         <span class="social-handle">@GadgetGaming2</span>
                     </span>
                 </a>
-                <a href="https://www.youtube.com/@GadgetAnimates" target="_blank" rel="noopener noreferrer" class="social-item">
+                <a href="https://www.youtube.com/@GadgetAnimates" target="_blank" rel="noopener noreferrer" class="social-item" title="YouTube: Gadget Animates (@GadgetAnimates)">
                     <img src="youtube-icon.png" class="social-icon" alt="YouTube">
                     <span class="social-text">
                         <span class="social-name">Gadget Animates</span>
