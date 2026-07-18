@@ -68,14 +68,14 @@
         width: 62%;
         position: relative;
         z-index: 5;
-        padding: 170px 40px 50px;
+        padding: 40px 40px 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     @media screen and (max-width: 768px) {
-        .about-wrap { width: 92%; padding: 150px 12px 30px; }
+        .about-wrap { width: 92%; padding: 30px 12px 30px; }
     }
 
     .eyebrow {
@@ -289,6 +289,92 @@
         .newlogo { width: 40%; top: 68%; left: 50%; transform: translateX(-50%); }
     }
 
+    /* ============ SOCIAL BAR ============ */
+    .social-wrap {
+        width: 62%;
+        position: relative;
+        z-index: 4;
+        margin: -40px auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+        .social-wrap { width: 92%; margin-top: -30px; }
+    }
+
+    .social-avatar {
+        position: relative;
+        width: 130px;
+        height: 130px;
+        margin-bottom: -40px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--holo);
+        box-shadow: 0 0 16px rgba(53,212,255,0.5), 0 0 40px rgba(53,212,255,0.15);
+        z-index: 6;
+    }
+    .social-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .social-bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(8,16,28,0.9);
+        border: 1px solid rgba(53,212,255,0.2);
+        padding: 14px 24px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .social-group {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+    }
+
+    .social-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+
+    .social-item .social-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+
+    .social-item .social-name {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .social-item .social-handle {
+        color: var(--text-dim);
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 11px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .social-bar { flex-direction: column; align-items: flex-start; }
+        .social-group { gap: 14px; }
+    }
+
     .youtube-video {
         width: 35%;
         height: 13%;
@@ -348,6 +434,59 @@
     <div class="header-wrap">
         <img src="websiteheader.png" class="header" width="100%">
         <img src="NEWLOGO.png" class="newlogo">
+    </div>
+
+    <!-- ============ SOCIAL BAR ============ -->
+    <div class="social-wrap">
+        <div class="social-avatar">
+            <img src="gadgettemp.png" alt="Gadget">
+        </div>
+        <div class="social-bar">
+            <div class="social-group">
+                <a href="#" class="social-item">
+                    <img src="discord-icon.png" class="social-icon" alt="Discord">
+                    <span class="social-text">
+                        <span class="social-name">Gadget</span>
+                        <span class="social-handle">@gadget103</span>
+                    </span>
+                </a>
+                <a href="#" class="social-item">
+                    <img src="steam-icon.png" class="social-icon" alt="Steam">
+                    <span class="social-text">
+                        <span class="social-name">Gadget</span>
+                        <span class="social-handle">id/gadget103</span>
+                    </span>
+                </a>
+                <a href="#" class="social-item">
+                    <img src="minecraft-icon.png" class="social-icon" alt="Minecraft">
+                    <span class="social-text">
+                        <span class="social-name">Gadget123</span>
+                    </span>
+                </a>
+            </div>
+            <div class="social-group">
+                <a href="#" class="social-item">
+                    <img src="diamond-icon.png" class="social-icon" alt="Itch">
+                    <span class="social-text">
+                        <span class="social-handle">@gadgethatesroblox2</span>
+                    </span>
+                </a>
+                <a href="#" class="social-item">
+                    <img src="youtube-icon.png" class="social-icon" alt="YouTube">
+                    <span class="social-text">
+                        <span class="social-name">Gadget</span>
+                        <span class="social-handle">@GadgetGaming2</span>
+                    </span>
+                </a>
+                <a href="#" class="social-item">
+                    <img src="youtube-icon.png" class="social-icon" alt="YouTube">
+                    <span class="social-text">
+                        <span class="social-name">Gadget Animates</span>
+                        <span class="social-handle">@GadgetAnimates</span>
+                    </span>
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- ============ ABOUT ME HOLOGRAM ============ -->
