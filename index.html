@@ -51,10 +51,16 @@
         .grey-square { width: 92%; min-height: 220%; }
     }
 
-    .header {
+    .header-wrap {
         width: 70%;
         position: relative;
         z-index: 2;
+        line-height: 0;
+    }
+
+    .header {
+        width: 100%;
+        display: block;
     }
 
     /* ============ ABOUT ME HOLOGRAM SECTION ============ */
@@ -274,13 +280,13 @@
     .newlogo {
         width: 10%;
         position: absolute;
-        top: 305px;
+        top: 61%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
     }
     @media screen and (max-width: 768px) {
-        .newlogo { width: 20%; top: 305px; left: 50%; transform: translateX(-50%); }
+        .newlogo { width: 20%; top: 61%; left: 50%; transform: translateX(-50%); }
     }
 
     .youtube-video {
@@ -339,7 +345,10 @@
     <div class="grey-square"></div>
 
     <!-- ============ HEADER ============ -->
-    <img src="websiteheader.png" class="header" width="100%">
+    <div class="header-wrap">
+        <img src="websiteheader.png" class="header" width="100%">
+        <img src="NEWLOGO.png" class="newlogo">
+    </div>
 
     <!-- ============ ABOUT ME HOLOGRAM ============ -->
     <div class="about-wrap">
@@ -367,7 +376,6 @@
     </div>
 
     <!-- ============ EXISTING SITE CONTENT (widened) ============ -->
-    <img src="NEWLOGO.png" class="newlogo">
     <p class="custom-text">Custom Player Models</p>
     <img src="websitemvgadget.gif" class="custom-image">
     <img src="websitetripod.png" class="custom-image-right">
