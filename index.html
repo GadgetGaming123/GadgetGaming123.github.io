@@ -149,7 +149,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 0;
         background: linear-gradient(180deg, rgba(10,30,50,0.55), rgba(4,10,20,0.75));
         border: 1px solid var(--holo-dim);
         box-shadow:
@@ -166,11 +166,9 @@
 
     .holo-photo img {
         width: 100%;
-        max-width: 200px;
-        filter: grayscale(15%) contrast(1.05) saturate(1.3) drop-shadow(0 0 16px rgba(53,212,255,0.55));
-        mix-blend-mode: screen;
-        opacity: 0.92;
-        clip-path: polygon(6% 0, 100% 0, 100% 94%, 94% 100%, 0 100%, 0 6%);
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     .holo-photo-tag {
