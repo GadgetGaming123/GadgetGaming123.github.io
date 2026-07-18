@@ -1,343 +1,400 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GadgetTech</title>
-    <style>
-        body {
-            background-image: url('websitebackground.png');
-            background-size: cover;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 300vh;
-            margin: 0;
-            position: relative;
-        }
-        .grey-square {
-            width: 37.5%;
-            height: 200%;
-            background-color: #1b1b1b;
-            position: absolute;
-            top: 0%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .grey-square {
-                width: 50%; /* Adjust width for smaller screens */
-                height: 150%; /* Adjust height for smaller screens */
-            }
-        }
-        .header {
-            width: 37.8%;
-            position: absolute;
-            top: 0;
-            z-index: 2;
-        }
-        .newlogo {
-            width: 10%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 60px; /* Lower the logo by 10 pixels from the top of the header */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%);
-            z-index: 3;
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .newlogo {
-                width: 20%; /* Adjust width for smaller screens */
-                top: 60px; /* Lower the logo by 10 pixels from the top of the header */
-                left: 50%; /* Center horizontally */
-                transform: translateX(-50%);
-            }
-        }
-        
-        /* YouTube Logo */
-        .youtube-logo {
-            width: 2%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 200px; /* Position just below the logo */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%);
-            z-index: 3;
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .youtube-logo {
-                width: 15%; /* Adjust width for smaller screens */
-                top: 100px; /* Position just below the logo */
-                left: 50%; /* Center horizontally */
-                transform: translateX(-50%);
-            }
-        }
-        
-        .youtube-video {
-            width: 35%; /* Set width to occupy 70% of the viewport */
-            height: 13%; /* Set a fixed height */
-            position: absolute;
-            top: 12%; /* Adjust top position */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 4;
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .youtube-video {
-                width: 70%; /* Adjust width for smaller screens */
-                height: auto; /* Allow height to adjust according to aspect ratio */
-                top: 20%; /* Adjust top position for smaller screens */
-                left: 50%; /* Adjust left position for smaller screens */
-                transform: translateX(-50%); /* Adjust centering for smaller screens */
-            }
-        }
-
-        .custom-text {
-            color: white;
-            position: absolute;
-            top: 25.5%; /* Adjust top position */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%);
-            z-index: 5;
-            font-family: 'Calibri', sans-serif; /* Use the same font */
-            font-weight: bold;
-            font-size: 18px; /* Adjust font size as needed */
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .custom-text {
-                top: 25%; /* Adjust top position for smaller screens */
-                font-size: 18px; /* Adjust font size for smaller screens */
-            }
-        }
-
-        .custom-image {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 28%; /* Adjust top position */
-            left: 50%; /* Adjust left position */
-            transform: translateX(-50%);
-            z-index: 6; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-
-            /* Media query for smaller screens */
-            @media screen and (max-width: 768px) {
-                width: 15%; /* Adjust width for smaller screens */
-                top: 30%; /* Adjust top position for smaller screens */
-                left: 50%; /* Adjust left position for smaller screens */
-                transform: translateX(-50%); /* Adjust centering for smaller screens */
-            }
-        }
-
-        .custom-image-right {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 28%; /* Adjust top position */
-            left: 56.5%; /* Adjust left position */
-            z-index: 6; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-
-            /* Media query for smaller screens */
-            @media screen and (max-width: 768px) {
-                width: 15%; /* Adjust width for smaller screens */
-                top: 30%; /* Adjust top position for smaller screens */
-                left: 50%; /* Adjust left position for smaller screens */
-                transform: translateX(-50%); /* Adjust centering for smaller screens */
-            }
-        }
-
-        .custom-image-left {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 28%; /* Adjust top position */
-            left: 32.5%; /* Adjust left position */
-            z-index: 6; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-
-            /* Media query for smaller screens */
-            @media screen and (max-width: 768px) {
-                width: 15%; /* Adjust width for smaller screens */
-                top: 30%; /* Adjust top position for smaller screens */
-                left: 50%; /* Adjust left position for smaller screens */
-                transform: translateX(-50%); /* Adjust centering for smaller screens */
-            }
-        }
-
-        .custom-image-below {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 36%; /* Adjust top position */
-            left: 44.5%; /* Adjust left position */
-            z-index: 9; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-        }
-        .custom-image-below-right {
-            width: 10.73%;
-            position: absolute;
-            top: 36%;
-            left: 56.5%;
-            z-index: 6;
-            border: 3px solid white;
-        }
-        .custom-image-below-left {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 36%; /* Adjust top position */
-            left: 32.5%; /* Adjust left position */
-            z-index: 9; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-        }
-        .custom-image-normal {
-            width: 35%; /* Set width to 20% of the viewport width */
-            height: auto; /* Maintain aspect ratio */
-            position: absolute;
-            bottom: 37%; /* Adjust bottom position */
-            left: 18%; /* Move towards the left */
-            transform: translateX(-50%);
-            z-index: 7;
-            /* Remove border */
-        }
-        .scp-image {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 44%; /* Adjust top position */
-            left: 50%; /* Adjust left position */
-            transform: translateX(-50%);
-            z-index: 8; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-
-            /* Media query for smaller screens */
-            @media screen and (max-width: 768px) {
-                width: 15%; /* Adjust width for smaller screens */
-                top: 50%; /* Adjust top position for smaller screens */
-                left: 50%; /* Adjust left position for smaller screens */
-                transform: translate(-50%, -50%); /* Adjust centering for smaller screens */
-            }
-        }
-
-        .gif-image {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 44%; /* Adjust top position */
-            left: 56.5%; /* Adjust left position */
-            z-index: 8; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-
-            /* Media query for smaller screens */
-            @media screen and (max-width: 768px) {
-                width: 15%; /* Adjust width for smaller screens */
-                top: 50%; /* Adjust top position for smaller screens */
-                left: 50%; /* Adjust left position for smaller screens */
-                transform: translate(-50%, -50%); /* Adjust centering for smaller screens */
-            }
-        }
-
-        .necromancer-image {
-            width: 10.73%; /* Adjust this value for desired width */
-            position: absolute;
-            top: 44%; /* Adjust top position */
-            left: 32.5%; /* Adjust left position */
-            z-index: 9; /* Ensure it's above other elements */
-            border: 3px solid white; /* Add border */
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    .necromancer-image {
-        width: 15%; /* Adjust width for smaller screens */
-        top: 40%; /* Adjust top position for smaller screens */
-        left: 30%; /* Adjust left position for smaller screens */
+<meta charset="UTF-8">
+<title>GadgetTech</title>
+<style>
+    :root {
+        --void: #040810;
+        --panel: #061428;
+        --panel-edge: #0d2444;
+        --holo: #35d4ff;
+        --holo-dim: #1c7fa8;
+        --holo-bright: #aef2ff;
+        --text: #d8f4ff;
+        --text-dim: #6f9bb5;
     }
-}
 
+    * { box-sizing: border-box; }
 
-.custom-image-cavedweller {
-    width: 10.73%; /* Adjust this value for desired width */
-    position: absolute;
-    top: 52%; /* Adjust top position */
-    left: 32.5%; /* Adjust left position */
-    z-index: 9; /* Ensure it's above other elements */
-    border: 3px solid white; /* Add border */
+    body {
+        background-color: var(--void);
+        background-image: url('websitebackground.png');
+        background-size: cover;
+        background-attachment: fixed;
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 300vh;
+        margin: 0;
+        position: relative;
+        font-family: 'Rajdhani', 'Exo 2', sans-serif;
+    }
 
-    /* Media query for smaller screens */
+    /* ============ WIDENED STRUCTURE ============ */
+    .grey-square {
+        width: 70%;
+        min-height: 200%;
+        background-color: #0a121e;
+        background-image: linear-gradient(180deg, rgba(53,212,255,0.04), rgba(0,0,0,0));
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        border-left: 1px solid rgba(53,212,255,0.15);
+        border-right: 1px solid rgba(53,212,255,0.15);
+    }
+
     @media screen and (max-width: 768px) {
-        width: 15%; /* Adjust width for smaller screens */
-        top: 40%; /* Adjust top position for smaller screens */
-        left: 30%; /* Adjust left position for smaller screens */
+        .grey-square { width: 92%; min-height: 220%; }
     }
-}
 
-.custom-image-fisherman {
-    width: 10.73%; /* Adjust this value for desired width */
-    position: absolute;
-    top: 52%; /* Align with Cave Dweller */
-    left: 50%; /* Align with SCP 079 */
-    transform: translateX(-50%);
-    z-index: 9; /* Ensure it's above other elements */
-    border: 3px solid white; /* Add border */
+    .header {
+        width: 70%;
+        position: relative;
+        z-index: 2;
+    }
 
-    /* Media query for smaller screens */
+    /* ============ ABOUT ME HOLOGRAM SECTION ============ */
+    .about-wrap {
+        width: 94%;
+        position: relative;
+        z-index: 5;
+        padding: 60px 40px 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     @media screen and (max-width: 768px) {
-        width: 15%; /* Adjust width for smaller screens */
-        top: 40%; /* Adjust top position for smaller screens */
-        left: 50%; /* Adjust left position for smaller screens */
-        transform: translate(-50%, -50%); /* Adjust centering for smaller screens */
+        .about-wrap { width: 96%; padding: 40px 12px 30px; }
     }
-}
 
-/* Adjustments for the header image */
-.header-image {
-    width: 23%;
-    position: absolute;
-    top: 0.05%;
-    left: 27%;
-    z-index: 10;
-}
+    .eyebrow {
+        font-family: 'Share Tech Mono', monospace;
+        letter-spacing: 0.35em;
+        font-size: 12px;
+        color: var(--holo-dim);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
 
-        /* Adjustments for the header image */
-        .header-image {
-            width: 23%;
-            position: absolute;
-            top: 0.05%;
-            left: 27%;
-            z-index: 10;
+    .section-title {
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 26px;
+        letter-spacing: 0.15em;
+        color: var(--holo-bright);
+        text-shadow: 0 0 14px rgba(53,212,255,0.6);
+        text-transform: uppercase;
+        margin: 0 0 20px;
+    }
+
+    .hologram-box {
+        position: relative;
+        width: 100%;
+        min-height: 420px;
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        overflow: visible;
+        animation: flicker 6s infinite;
+    }
+
+    @media screen and (max-width: 768px) {
+        .hologram-box { flex-direction: column; min-height: 0; gap: 24px; }
+    }
+
+    /* corner brackets, sci-fi HUD framing */
+    .hologram-box::before,
+    .hologram-box::after,
+    .corner-tl, .corner-tr, .corner-bl, .corner-br {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-color: var(--holo);
+        z-index: 6;
+    }
+    .corner-tl { top: -1px; left: -1px; border-top: 2px solid var(--holo); border-left: 2px solid var(--holo); }
+    .corner-tr { top: -1px; right: -1px; border-top: 2px solid var(--holo); border-right: 2px solid var(--holo); }
+    .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--holo); border-left: 2px solid var(--holo); }
+    .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--holo); border-right: 2px solid var(--holo); }
+
+    /* scanline overlay */
+    .scanlines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(53,212,255,0.05) 0px,
+            rgba(53,212,255,0.05) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+        mix-blend-mode: screen;
+        animation: drift 9s linear infinite;
+        z-index: 5;
+    }
+
+    .holo-photo {
+        position: relative;
+        float: right;
+        width: 22%;
+        aspect-ratio: 1 / 1;
+        min-width: 160px;
+        margin: 4px 0 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(180deg, rgba(10,30,50,0.55), rgba(4,10,20,0.75));
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 18px rgba(53,212,255,0.25),
+            0 0 60px rgba(53,212,255,0.08),
+            inset 0 0 40px rgba(53,212,255,0.05);
+        overflow: hidden;
+        backdrop-filter: blur(2px);
+    }
+
+    @media screen and (max-width: 768px) {
+        .holo-photo { float: none; width: 100%; min-width: 0; margin: 0 0 20px 0; }
+    }
+
+    .holo-photo img {
+        width: 100%;
+        max-width: 200px;
+        filter: grayscale(15%) contrast(1.05) saturate(1.3) drop-shadow(0 0 16px rgba(53,212,255,0.55));
+        mix-blend-mode: screen;
+        opacity: 0.92;
+        clip-path: polygon(6% 0, 100% 0, 100% 94%, 94% 100%, 0 100%, 0 6%);
+    }
+
+    .holo-photo-tag {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        color: var(--holo-dim);
+    }
+
+    .about-content {
+        position: relative;
+        width: 100%;
+        padding: 40px 50px;
+        z-index: 4;
+        background: linear-gradient(180deg, rgba(10,30,50,0.55), rgba(4,10,20,0.75));
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 18px rgba(53,212,255,0.25),
+            0 0 60px rgba(53,212,255,0.08),
+            inset 0 0 40px rgba(53,212,255,0.05);
+        overflow: hidden;
+        backdrop-filter: blur(2px);
+    }
+
+    .about-content h1 {
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 30px;
+        letter-spacing: 0.08em;
+        color: var(--holo-bright);
+        text-shadow: 0 0 12px rgba(53,212,255,0.6);
+        margin: 0 0 6px;
+        text-transform: uppercase;
+    }
+
+    .about-content .role {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 13px;
+        color: var(--text-dim);
+        letter-spacing: 0.1em;
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        color: #ffffff;
+        font-size: 13px;
+        line-height: 1.65;
+        max-width: 56ch;
+        margin: 0;
+    }
+
+    .about-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text);
+        max-width: 52ch;
+        margin: 0 0 18px;
+    }
+
+    .status-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 12px;
+        color: var(--holo);
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--holo);
+        box-shadow: 0 0 8px var(--holo), 0 0 2px var(--holo);
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes flicker {
+        0%, 96%, 100% { opacity: 1; }
+        97% { opacity: 0.85; }
+        98% { opacity: 1; }
+        99% { opacity: 0.92; }
+    }
+
+    @keyframes drift {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 40px; }
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+    }
+
+    /* ============ EXISTING ELEMENTS (kept, widened where relevant) ============ */
+    .newlogo {
+        width: 10%;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+    @media screen and (max-width: 768px) {
+        .newlogo { width: 20%; top: 60px; left: 50%; transform: translateX(-50%); }
+    }
+
+    .youtube-logo {
+        width: 2%;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+    @media screen and (max-width: 768px) {
+        .youtube-logo { width: 15%; top: 100px; left: 50%; transform: translateX(-50%); }
+    }
+
+    .youtube-video {
+        width: 35%;
+        height: 13%;
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+    }
+    @media screen and (max-width: 768px) {
+        .youtube-video { width: 70%; height: auto; top: 20%; left: 50%; transform: translateX(-50%); }
+    }
+
+    .custom-text {
+        color: white;
+        position: absolute;
+        top: 25.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        font-family: 'Calibri', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    @media screen and (max-width: 768px) {
+        .custom-text { top: 25%; font-size: 18px; }
+    }
+
+    .custom-image { width: 10.73%; position: absolute; top: 28%; left: 50%; transform: translateX(-50%); z-index: 6; border: 3px solid white; }
+    .custom-image-right { width: 10.73%; position: absolute; top: 28%; left: 56.5%; z-index: 6; border: 3px solid white; }
+    .custom-image-left { width: 10.73%; position: absolute; top: 28%; left: 32.5%; z-index: 6; border: 3px solid white; }
+    .custom-image-below { width: 10.73%; position: absolute; top: 36%; left: 44.5%; z-index: 9; border: 3px solid white; }
+    .custom-image-below-right { width: 10.73%; position: absolute; top: 36%; left: 56.5%; z-index: 6; border: 3px solid white; }
+    .custom-image-below-left { width: 10.73%; position: absolute; top: 36%; left: 32.5%; z-index: 9; border: 3px solid white; }
+    .custom-image-normal { width: 35%; height: auto; position: absolute; bottom: 37%; left: 18%; transform: translateX(-50%); z-index: 7; }
+    .scp-image { width: 10.73%; position: absolute; top: 44%; left: 50%; transform: translateX(-50%); z-index: 8; border: 3px solid white; }
+    .gif-image { width: 10.73%; position: absolute; top: 44%; left: 56.5%; z-index: 8; border: 3px solid white; }
+    .necromancer-image { width: 10.73%; position: absolute; top: 44%; left: 32.5%; z-index: 9; border: 3px solid white; }
+    .custom-image-cavedweller { width: 10.73%; position: absolute; top: 52%; left: 32.5%; z-index: 9; border: 3px solid white; }
+    .custom-image-fisherman { width: 10.73%; position: absolute; top: 52%; left: 50%; transform: translateX(-50%); z-index: 9; border: 3px solid white; }
+    .header-image { width: 23%; position: absolute; top: 0.05%; left: 27%; z-index: 10; }
+
+    @media screen and (max-width: 768px) {
+        .custom-image, .custom-image-right, .custom-image-left,
+        .necromancer-image, .custom-image-cavedweller, .custom-image-fisherman,
+        .scp-image, .gif-image {
+            width: 15%;
         }
-    </style>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    }
+</style>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 <body>
-    <img src="headercg.png" class="header-image"> <!-- Added Header Image -->
-    <img src="websiteheader.png" class="header" width="100%"> <!-- Adjusted width -->
+
     <div class="grey-square"></div>
+
+    <!-- ============ ABOUT ME HOLOGRAM ============ -->
+    <div class="about-wrap">
+        <div class="eyebrow">// operator profile</div>
+        <div class="hologram-box">
+            <div class="about-content">
+                <div class="scanlines"></div>
+                <div class="corner-tl"></div>
+                <div class="corner-tr"></div>
+                <div class="corner-bl"></div>
+                <div class="corner-br"></div>
+
+                <div class="holo-photo">
+                    <div class="scanlines"></div>
+                    <div class="corner-tl"></div>
+                    <div class="corner-tr"></div>
+                    <div class="corner-bl"></div>
+                    <div class="corner-br"></div>
+                    <img src="aboutme-photo.png" alt="Gadget">
+                    <div class="holo-photo-tag">FIG-01 // SELF</div>
+                </div>
+
+                <h1>About Me</h1>
+                <p class="about-text">Hi! I'm Gadget. Sometimes called Gadget Gooner Gaming. I'm an online douchbag with a tendency to make one too many jokes! I do many things! I edit and create videos professionally and personally, I do way too much Roleplay in games like Minecraft or DND. I do Improv, VR, and have 6000 hours in Gmod. Basically, I have problems. If this sounds good to you, maybe I can be your problem too!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ EXISTING SITE CONTENT (widened) ============ -->
+    <img src="headercg.png" class="header-image">
+    <img src="websiteheader.png" class="header" width="100%">
     <img src="NEWLOGO.png" class="newlogo">
     <iframe class="youtube-video" src="https://www.youtube.com/embed/yJFyVYb59mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <p class="custom-text">Custom Player Models</p>
     <img src="websitemvgadget.gif" class="custom-image">
     <img src="websitetripod.png" class="custom-image-right">
-    <img src="cameraguymodels.gif" class="custom-image-left"> <!-- Replaced with GIF -->
+    <img src="cameraguymodels.gif" class="custom-image-left">
     <img src="websitegreg.png" class="custom-image-below">
     <img src="websitecaleb.png" class="custom-image-below-right">
     <img src="websitenewton.png" class="custom-image-below-left">
     <img src="websitemv.png" class="custom-image-normal">
-    <!-- SCP Image -->
     <img src="websitescp079.png" class="scp-image">
-    <!-- GIF Image -->
     <img src="websitesculkborn.gif" class="gif-image">
-    <!-- Necromancer Image -->
     <img src="websitenecromancer.png" class="necromancer-image">
-    <!-- Cave Dweller Image -->
     <img src="websitecavedweller.png" class="custom-image-cavedweller">
-    <!-- Fisherman -->
     <img src="websitefisherman.png" class="custom-image-fisherman">
-    <!-- Youtube Hyperlink -->
     <img src="ytwebsite.png" class="youtube-logo">
+
 </body>
 </html>
