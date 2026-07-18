@@ -339,6 +339,15 @@
         flex-wrap: wrap;
     }
 
+    .social-center-spacer {
+        flex: 0 0 18%;
+        min-width: 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .social-center-spacer { display: none; }
+    }
+
     .social-item {
         display: flex;
         align-items: center;
@@ -461,12 +470,13 @@
                     </span>
                 </a>
                 <a href="https://namemc.com/profile/Gadget123.1" target="_blank" rel="noopener noreferrer" class="social-item">
-                    <img src="minecraft-icon.png" class="social-icon" alt="Minecraft">
+                    <img src="minecraft-icon.png" class="social-icon" alt="Minecraft" style="width: 56px; height: 56px;">
                     <span class="social-text">
                         <span class="social-name">Gadget123</span>
                     </span>
                 </a>
             </div>
+            <div class="social-center-spacer"></div>
             <div class="social-group">
                 <a href="https://www.roblox.com/users/5421651897/profile" target="_blank" rel="noopener noreferrer" class="social-item" style="margin-left: 20px;">
                     <img src="diamond-icon.png" class="social-icon" alt="Roblox">
