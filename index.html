@@ -281,12 +281,12 @@
         width: 20%;
         position: absolute;
         top: 68%;
-        left: 50%;
+        left: calc(50% - 10px);
         transform: translateX(-50%);
         z-index: 5;
     }
     @media screen and (max-width: 768px) {
-        .newlogo { width: 40%; top: 68%; left: 50%; transform: translateX(-50%); }
+        .newlogo { width: 40%; top: 68%; left: calc(50% - 10px); transform: translateX(-50%); }
     }
 
     /* ============ SOCIAL BAR ============ */
@@ -323,34 +323,34 @@
 
     .social-bar {
         width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 22% 1fr;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
         background: rgba(8,16,28,0.9);
         border: 1px solid rgba(53,212,255,0.2);
         padding: 14px 24px;
         gap: 10px;
+        flex-wrap: wrap;
     }
 
     .social-group {
         display: flex;
         gap: 22px;
         flex-wrap: wrap;
-        justify-self: start;
     }
 
     .social-group-right {
         gap: 6px;
-        justify-self: end;
+        margin-left: auto;
     }
 
     .social-center-spacer {
-        width: 100%;
-        height: 1px;
+        flex: 0 0 18%;
+        min-width: 60px;
     }
 
     @media screen and (max-width: 768px) {
-        .social-bar { display: flex; flex-direction: column; align-items: flex-start; }
+        .social-bar { flex-direction: column; align-items: flex-start; }
         .social-center-spacer { display: none; }
     }
 
