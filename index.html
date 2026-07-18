@@ -331,8 +331,6 @@
         padding: 14px 24px;
         gap: 10px;
         flex-wrap: nowrap;
-        container-type: inline-size;
-        container-name: social-bar;
     }
 
     .social-group {
@@ -357,19 +355,9 @@
         .social-bar { padding: 8px 10px; gap: 4px; }
         .social-group { gap: clamp(4px, 2vw, 14px); }
         .social-group-right { gap: clamp(4px, 2vw, 10px); }
-    }
-
-    @container social-bar (max-width: 560px) {
-        .social-item .social-text {
-            display: none;
-        }
-        .social-icon {
-            width: 24px;
-            height: 24px;
-        }
-        .social-item {
-            gap: 0;
-        }
+        .social-item .social-text { display: none; }
+        .social-item { gap: 0; }
+        .social-icon { width: 26px; height: 26px; }
     }
 
     .social-item {
