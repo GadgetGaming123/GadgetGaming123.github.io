@@ -330,13 +330,15 @@
         border: 1px solid rgba(53,212,255,0.2);
         padding: 14px 24px;
         gap: 10px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
     }
 
     .social-group {
         display: flex;
         gap: 22px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
     }
 
     .social-group-right {
@@ -350,8 +352,12 @@
     }
 
     @media screen and (max-width: 768px) {
-        .social-bar { flex-direction: column; align-items: flex-start; }
         .social-center-spacer { display: none; }
+        .social-item .social-handle { display: none; }
+        .social-icon { width: 22px; height: 22px; }
+        .social-group { gap: 10px; }
+        .social-group-right { gap: 10px; }
+        .social-bar { padding: 10px 14px; }
     }
 
     .social-item {
@@ -389,10 +395,6 @@
         color: var(--text-dim);
         font-family: 'Share Tech Mono', monospace;
         font-size: 11px;
-    }
-
-    @media screen and (max-width: 768px) {
-        .social-group { gap: 14px; }
     }
 
     .youtube-video {
