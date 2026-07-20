@@ -473,14 +473,16 @@
         left: 0;
         width: 100%;
         z-index: 8;
-        background: linear-gradient(135deg, #1c6fc7, #114a94);
-        color: #ffffff;
+        background: linear-gradient(180deg, rgba(10,30,50,0.92), rgba(4,10,20,0.95));
+        color: var(--holo-bright);
+        text-shadow: 0 0 12px rgba(53,212,255,0.6);
         font-family: 'Orbitron', 'Rajdhani', sans-serif;
         font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.03em;
-        padding: 16px 50px 16px 26px;
-        clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+        padding: 16px 60px 16px 26px;
+        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+        border-bottom: 1px solid var(--holo-dim);
         box-shadow: 0 6px 18px rgba(0,0,0,0.35);
         pointer-events: none;
     }
