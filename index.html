@@ -457,14 +457,14 @@
     }
     /* ============ FAVOURITE GAMES SHOWCASE ============ */
     .games-section {
-        width: 62%;
+        width: 31%;
         position: relative;
         z-index: 5;
         margin: 20px auto 60px;
     }
 
     @media screen and (max-width: 768px) {
-        .games-section { width: 92%; }
+        .games-section { width: 70%; }
     }
 
     .games-banner {
@@ -483,12 +483,17 @@
     }
 
     .games-scroll {
+        position: relative;
         display: flex;
         gap: 0;
         overflow-x: auto;
         overflow-y: hidden;
-        background: #000000;
-        border: 1px solid #d97a1f;
+        background: rgba(6,14,26,0.85);
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 18px rgba(53,212,255,0.25),
+            0 0 60px rgba(53,212,255,0.08),
+            inset 0 0 40px rgba(53,212,255,0.05);
         padding: 0;
         scrollbar-width: thin;
         scrollbar-color: #2e6fff #0a0a0a;
@@ -629,6 +634,9 @@
     <div class="games-section">
         <div class="games-banner">My Favourite Games of all time!</div>
         <div class="games-scroll">
+            <div class="scanlines"></div>
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
             <div class="game-card" style="background-image: url('game-gmod.jpg');">
                 <div class="game-title">Garry's Mod</div>
             </div>
