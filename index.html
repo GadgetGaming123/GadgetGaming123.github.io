@@ -457,14 +457,14 @@
     }
     /* ============ FAVOURITE GAMES SHOWCASE ============ */
     .games-section {
-        width: 31%;
+        width: 47%;
         position: relative;
         z-index: 5;
-        margin: 20px auto 60px;
+        margin: 27px auto 80px;
     }
 
     @media screen and (max-width: 768px) {
-        .games-section { width: 70%; }
+        .games-section { width: 92%; }
     }
 
     .games-banner {
@@ -490,13 +490,21 @@
     .games-box {
         position: relative;
         background: rgba(6,14,26,0.85);
-        border: 1px solid var(--holo-dim);
         box-shadow:
             0 0 18px rgba(53,212,255,0.25),
             0 0 60px rgba(53,212,255,0.08),
             inset 0 0 40px rgba(53,212,255,0.05);
         clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
-        overflow: hidden;
+        overflow: visible;
+    }
+
+    .games-box::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        background: var(--holo-dim);
+        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
+        z-index: -1;
     }
 
     .games-box .scanlines,
@@ -527,8 +535,8 @@
 
     .game-card {
         position: relative;
-        flex: 0 0 190px;
-        height: 380px;
+        flex: 0 0 285px;
+        height: 760px;
         background-size: cover;
         background-position: center;
         display: flex;
@@ -538,7 +546,7 @@
     }
 
     .game-card:hover {
-        flex: 0 0 230px;
+        flex: 0 0 345px;
     }
 
     .game-card .game-title {
