@@ -482,22 +482,31 @@
         box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
-    .games-scroll {
+    .games-box {
         position: relative;
-        display: flex;
-        gap: 0;
-        overflow-x: auto;
-        overflow-y: hidden;
         background: rgba(6,14,26,0.85);
         border: 1px solid var(--holo-dim);
         box-shadow:
             0 0 18px rgba(53,212,255,0.25),
             0 0 60px rgba(53,212,255,0.08),
             inset 0 0 40px rgba(53,212,255,0.05);
-        padding: 0;
+        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
+        overflow: hidden;
+    }
+
+    .games-box .scanlines,
+    .games-box .corner-tl,
+    .games-box .corner-br {
+        pointer-events: none;
+    }
+
+    .games-scroll {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
         scrollbar-width: thin;
         scrollbar-color: #2e6fff #0a0a0a;
-        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
     }
 
     .games-scroll::-webkit-scrollbar {
@@ -633,11 +642,12 @@
     <!-- ============ FAVOURITE GAMES SHOWCASE ============ -->
     <div class="games-section">
         <div class="games-banner">My Favourite Games of all time!</div>
-        <div class="games-scroll">
+        <div class="games-box">
             <div class="scanlines"></div>
             <div class="corner-tl"></div>
             <div class="corner-br"></div>
-            <div class="game-card" style="background-image: url('game-gmod.jpg');">
+            <div class="games-scroll">
+                <div class="game-card" style="background-image: url('game-gmod.jpg');">
                 <div class="game-title">Garry's Mod</div>
             </div>
             <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
@@ -657,6 +667,7 @@
             </div>
             <div class="game-card" style="background-image: url('game-vrchat.jpg');">
                 <div class="game-title">VRChat</div>
+            </div>
             </div>
         </div>
     </div>
