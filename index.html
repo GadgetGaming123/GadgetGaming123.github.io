@@ -659,7 +659,7 @@
             <div class="corner-tl"></div>
             <div class="corner-br"></div>
             <div class="games-banner">My Favourite games of all time!</div>
-            <div class="games-scroll">
+            <div class="games-scroll" id="gamesScroll">
                 <div class="game-card" style="background-image: url('game-gmod.jpg');">
                 <div class="game-title">Garry's Mod</div>
             </div>
@@ -699,6 +699,48 @@
     <img src="websitenecromancer.png" class="necromancer-image">
     <img src="websitecavedweller.png" class="custom-image-cavedweller">
     <img src="websitefisherman.png" class="custom-image-fisherman">
+    <script>
+        (function () {
+            const track = document.getElementById('gamesScroll');
+            if (!track) return;
 
+            // duplicate the cards once so the loop can wrap seamlessly
+            const originalCards = Array.from(track.children);
+            originalCards.forEach(card => {
+                track.appendChild(card.cloneNode(true));
+            });
+
+            let autoScroll = true;
+            let resumeTimeout = null;
+            const SPEED = 0.4; // px per frame, slow drift
+            const RESUME_DELAY = 2500; // ms after user stops interacting
+
+            function pauseAuto() {
+                autoScroll = false;
+                clearTimeout(resumeTimeout);
+                resumeTimeout = setTimeout(() => {
+                    autoScroll = true;
+                }, RESUME_DELAY);
+            }
+
+            ['wheel', 'touchstart', 'mousedown'].forEach(evt => {
+                track.addEventListener(evt, pauseAuto, { passive: true });
+            });
+
+            function tick() {
+                if (autoScroll) {
+                    track.scrollLeft += SPEED;
+
+                    const halfWidth = track.scrollWidth / 2;
+                    if (track.scrollLeft >= halfWidth) {
+                        track.scrollLeft -= halfWidth;
+                    }
+                }
+                requestAnimationFrame(tick);
+            }
+
+            requestAnimationFrame(tick);
+        })();
+    </script>
 </body>
 </html>
