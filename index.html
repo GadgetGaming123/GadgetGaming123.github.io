@@ -350,16 +350,6 @@
         min-width: 20px;
     }
 
-    @media screen and (max-width: 768px) {
-        .social-center-spacer { flex: 0 0 8%; min-width: 0; }
-        .social-bar { padding: 8px 10px; gap: 4px; }
-        .social-group { gap: clamp(4px, 2vw, 14px); }
-        .social-group-right { gap: clamp(4px, 2vw, 10px); }
-        .social-item .social-text { display: none; }
-        .social-item { gap: 0; }
-        .social-icon { width: 26px; height: 26px; }
-    }
-
     .social-item {
         display: flex;
         align-items: center;
@@ -405,6 +395,16 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    @media screen and (max-width: 768px) {
+        .social-center-spacer { flex: 0 0 8%; min-width: 0; }
+        .social-bar { padding: 8px 10px; gap: 4px; }
+        .social-group { gap: clamp(4px, 2vw, 14px); }
+        .social-group-right { gap: clamp(4px, 2vw, 10px); }
+        .social-item .social-text { display: none; }
+        .social-item { gap: 0; }
+        .social-icon { width: 26px; height: 26px; }
     }
 
     .youtube-video {
@@ -455,7 +455,87 @@
             width: 15%;
         }
     }
+    /* ============ FAVOURITE GAMES SHOWCASE ============ */
+    .games-section {
+        width: 62%;
+        position: relative;
+        z-index: 5;
+        margin: 20px auto 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .games-section { width: 92%; }
+    }
+
+    .games-banner {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(135deg, #1c6fc7, #114a94);
+        color: #ffffff;
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        padding: 16px 50px 16px 26px;
+        clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+        margin-bottom: -1px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    .games-scroll {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #000000;
+        border: 1px solid #d97a1f;
+        padding: 0;
+        scrollbar-width: thin;
+        scrollbar-color: #2e6fff #0a0a0a;
+    }
+
+    .games-scroll::-webkit-scrollbar {
+        height: 10px;
+    }
+    .games-scroll::-webkit-scrollbar-track {
+        background: #0a0a0a;
+    }
+    .games-scroll::-webkit-scrollbar-thumb {
+        background: #2e6fff;
+        border-radius: 0;
+    }
+
+    .game-card {
+        position: relative;
+        flex: 0 0 190px;
+        height: 380px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        transition: flex-basis 0.25s ease;
+    }
+
+    .game-card:hover {
+        flex: 0 0 230px;
+    }
+
+    .game-card .game-title {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 16px 12px;
+        color: #ffffff;
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+        background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    }
+
 </style>
+
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 <body>
@@ -540,6 +620,34 @@
 
                 <h1>About Me</h1>
                 <p class="about-text">Hi! I'm Gadget. Sometimes called Gadget Gooner Gaming. I'm an online douchbag with a tendency to make one too many jokes! I do many things! I edit and create videos professionally and personally, I do way too much Roleplay in games like Minecraft or DND. I do Improv, VR, and have 6000 hours in Gmod. Basically, I have problems. If this sounds good to you, maybe I can be your problem too!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FAVOURITE GAMES SHOWCASE ============ -->
+    <div class="games-section">
+        <div class="games-banner">My Favourite Games of all time!</div>
+        <div class="games-scroll">
+            <div class="game-card" style="background-image: url('game-gmod.jpg');">
+                <div class="game-title">Garry's Mod</div>
+            </div>
+            <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
+                <div class="game-title">Half-Life: Alyx</div>
+            </div>
+            <div class="game-card" style="background-image: url('game-minecraft.jpg');">
+                <div class="game-title">Minecraft</div>
+            </div>
+            <div class="game-card" style="background-image: url('game-undertale.jpg');">
+                <div class="game-title">Undertale</div>
+            </div>
+            <div class="game-card" style="background-image: url('game-notime.jpg');">
+                <div class="game-title">No Time</div>
+            </div>
+            <div class="game-card" style="background-image: url('game-spiderman2.jpg');">
+                <div class="game-title">Marvel's Spider-Man 2</div>
+            </div>
+            <div class="game-card" style="background-image: url('game-vrchat.jpg');">
+                <div class="game-title">VRChat</div>
             </div>
         </div>
     </div>
