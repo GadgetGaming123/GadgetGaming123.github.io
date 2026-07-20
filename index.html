@@ -457,51 +457,29 @@
     }
     /* ============ FAVOURITE GAMES SHOWCASE ============ */
     .games-section {
-        width: 47%;
+        width: 31%;
         position: relative;
         z-index: 5;
         margin: 20px auto 60px;
     }
 
     @media screen and (max-width: 768px) {
-        .games-section { width: 92%; }
-    }
-
-    /* outer frame holds the visual shape/border/glow and static overlays
-       (scanlines, corners, banner) that must NOT scroll with the content */
-    .games-frame {
-        position: relative;
-        background: rgba(6,14,26,0.85);
-        border: 1px solid var(--holo-dim);
-        box-shadow:
-            0 0 18px rgba(53,212,255,0.25),
-            0 0 60px rgba(53,212,255,0.08),
-            inset 0 0 40px rgba(53,212,255,0.05);
-        clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 60px 100%, 0 calc(100% - 60px));
-        overflow: hidden;
-    }
-
-    .games-frame .scanlines,
-    .games-frame .corner-tl,
-    .games-frame .corner-br {
-        pointer-events: none;
+        .games-section { width: 70%; }
     }
 
     .games-banner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 7;
-        background: linear-gradient(100deg, rgba(28,111,199,0.92), rgba(17,74,148,0.75) 70%, rgba(17,74,148,0));
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(135deg, #1c6fc7, #114a94);
         color: #ffffff;
         font-family: 'Orbitron', 'Rajdhani', sans-serif;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.03em;
-        padding: 20px 32px;
-        clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%);
-        pointer-events: none;
+        padding: 16px 50px 16px 26px;
+        clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+        margin-bottom: -1px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
     .games-scroll {
@@ -510,9 +488,16 @@
         gap: 0;
         overflow-x: auto;
         overflow-y: hidden;
-        padding-top: 90px;
+        background: rgba(6,14,26,0.85);
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 18px rgba(53,212,255,0.25),
+            0 0 60px rgba(53,212,255,0.08),
+            inset 0 0 40px rgba(53,212,255,0.05);
+        padding: 0;
         scrollbar-width: thin;
         scrollbar-color: #2e6fff #0a0a0a;
+        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
     }
 
     .games-scroll::-webkit-scrollbar {
@@ -528,8 +513,8 @@
 
     .game-card {
         position: relative;
-        flex: 0 0 285px;
-        height: 570px;
+        flex: 0 0 190px;
+        height: 380px;
         background-size: cover;
         background-position: center;
         display: flex;
@@ -539,7 +524,7 @@
     }
 
     .game-card:hover {
-        flex: 0 0 345px;
+        flex: 0 0 230px;
     }
 
     .game-card .game-title {
