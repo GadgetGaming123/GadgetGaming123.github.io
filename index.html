@@ -468,8 +468,11 @@
     }
 
     .games-banner {
-        position: relative;
-        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 8;
         background: linear-gradient(135deg, #1c6fc7, #114a94);
         color: #ffffff;
         font-family: 'Orbitron', 'Rajdhani', sans-serif;
@@ -478,8 +481,8 @@
         letter-spacing: 0.03em;
         padding: 16px 50px 16px 26px;
         clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
-        margin-bottom: -1px;
         box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        pointer-events: none;
     }
 
     .games-box {
@@ -641,11 +644,11 @@
 
     <!-- ============ FAVOURITE GAMES SHOWCASE ============ -->
     <div class="games-section">
-        <div class="games-banner">My Favourite Games of all time!</div>
         <div class="games-box">
             <div class="scanlines"></div>
             <div class="corner-tl"></div>
             <div class="corner-br"></div>
+            <div class="games-banner">My Favourite games of all time!</div>
             <div class="games-scroll">
                 <div class="game-card" style="background-image: url('game-gmod.jpg');">
                 <div class="game-title">Garry's Mod</div>
