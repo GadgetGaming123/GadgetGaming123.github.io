@@ -516,22 +516,7 @@
 
     .games-scroll {
         width: 100%;
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: #2e6fff #0a0a0a;
-    }
-
-    .games-scroll::-webkit-scrollbar {
-        height: 10px;
-    }
-    .games-scroll::-webkit-scrollbar-track {
-        background: #0a0a0a;
-    }
-    .games-scroll::-webkit-scrollbar-thumb {
-        background: #2e6fff;
-        border-radius: 0;
+        overflow: hidden;
     }
 
     .games-track {
@@ -539,8 +524,18 @@
         flex-wrap: nowrap;
         align-items: flex-start;
         gap: 0;
+        width: max-content;
+        animation: games-marquee 40s linear infinite;
     }
 
+    .games-scroll:hover .games-track {
+        animation-play-state: paused;
+    }
+
+    @keyframes games-marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
 
     .game-card {
         position: relative;
@@ -548,17 +543,14 @@
         height: 608px;
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
-        background-color: #000000;
         display: flex;
         align-items: flex-end;
         overflow: hidden;
-        transition: flex-basis 0.25s ease, background-size 0.25s ease;
+        transition: flex-basis 0.25s ease;
     }
 
     .game-card:hover {
         flex: 0 0 276px;
-        background-size: contain;
     }
 
     .game-card .game-title {
@@ -735,42 +727,5 @@
     <img src="websitenecromancer.png" class="necromancer-image">
     <img src="websitecavedweller.png" class="custom-image-cavedweller">
     <img src="websitefisherman.png" class="custom-image-fisherman">
-    <script>
-        (function () {
-            const scroller = document.getElementById('gamesScroll');
-            if (!scroller) return;
-
-            let autoScroll = true;
-            let resumeTimeout = null;
-            const SPEED = 0.4; // px per frame, slow drift
-            const RESUME_DELAY = 2500; // ms after user stops interacting
-
-            function pauseAuto() {
-                autoScroll = false;
-                clearTimeout(resumeTimeout);
-                resumeTimeout = setTimeout(() => {
-                    autoScroll = true;
-                }, RESUME_DELAY);
-            }
-
-            ['wheel', 'touchstart', 'mousedown'].forEach(evt => {
-                scroller.addEventListener(evt, pauseAuto, { passive: true });
-            });
-
-            function tick() {
-                if (autoScroll) {
-                    scroller.scrollLeft += SPEED;
-
-                    const halfWidth = scroller.scrollWidth / 2;
-                    if (scroller.scrollLeft >= halfWidth) {
-                        scroller.scrollLeft -= halfWidth;
-                    }
-                }
-                requestAnimationFrame(tick);
-            }
-
-            requestAnimationFrame(tick);
-        })();
-    </script>
 </body>
 </html>
