@@ -516,45 +516,39 @@
 
     .games-scroll {
         width: 100%;
-        overflow: hidden;
-    }
-
-    .games-track {
         display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
         gap: 0;
-        width: max-content;
-        animation: games-marquee 40s linear infinite;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: #2e6fff #0a0a0a;
     }
 
-    .games-scroll:hover .games-track {
-        animation-play-state: paused;
+    .games-scroll::-webkit-scrollbar {
+        height: 10px;
     }
-
-    @keyframes games-marquee {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+    .games-scroll::-webkit-scrollbar-track {
+        background: #0a0a0a;
+    }
+    .games-scroll::-webkit-scrollbar-thumb {
+        background: #2e6fff;
+        border-radius: 0;
     }
 
     .game-card {
         position: relative;
         flex: 0 0 228px;
-        flex-shrink: 0;
         height: 608px;
         background-size: cover;
         background-position: center;
         display: flex;
         align-items: flex-end;
         overflow: hidden;
-        transform: scale(1);
-        transition: transform 0.25s ease;
-        z-index: 1;
+        transition: flex-basis 0.25s ease;
     }
 
     .game-card:hover {
-        transform: scale(1.12);
-        z-index: 3;
+        flex: 0 0 276px;
     }
 
     .game-card .game-title {
@@ -668,50 +662,26 @@
             <div class="corner-br"></div>
             <div class="games-banner">My Favourite games of all time!</div>
             <div class="games-scroll" id="gamesScroll">
-                <div class="games-track">
-                    <div class="game-card" style="background-image: url('game-gmod.jpg');">
-                        <div class="game-title">Garry's Mod</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
-                        <div class="game-title">Half-Life: Alyx</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-minecraft.jpg');">
-                        <div class="game-title">Minecraft</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-undertale.jpg');">
-                        <div class="game-title">Undertale</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-notime.jpg');">
-                        <div class="game-title">No Time</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-spiderman2.jpg');">
-                        <div class="game-title">Marvel's Spider-Man 2</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-vrchat.jpg');">
-                        <div class="game-title">VRChat</div>
-                    </div>
-                    <!-- duplicate set for seamless looping -->
-                    <div class="game-card" style="background-image: url('game-gmod.jpg');">
-                        <div class="game-title">Garry's Mod</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
-                        <div class="game-title">Half-Life: Alyx</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-minecraft.jpg');">
-                        <div class="game-title">Minecraft</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-undertale.jpg');">
-                        <div class="game-title">Undertale</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-notime.jpg');">
-                        <div class="game-title">No Time</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-spiderman2.jpg');">
-                        <div class="game-title">Marvel's Spider-Man 2</div>
-                    </div>
-                    <div class="game-card" style="background-image: url('game-vrchat.jpg');">
-                        <div class="game-title">VRChat</div>
-                    </div>
+                <div class="game-card" style="background-image: url('game-gmod.jpg');">
+                    <div class="game-title">Garry's Mod</div>
+                </div>
+                <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
+                    <div class="game-title">Half-Life: Alyx</div>
+                </div>
+                <div class="game-card" style="background-image: url('game-minecraft.jpg');">
+                    <div class="game-title">Minecraft</div>
+                </div>
+                <div class="game-card" style="background-image: url('game-undertale.jpg');">
+                    <div class="game-title">Undertale</div>
+                </div>
+                <div class="game-card" style="background-image: url('game-notime.jpg');">
+                    <div class="game-title">No Time</div>
+                </div>
+                <div class="game-card" style="background-image: url('game-spiderman2.jpg');">
+                    <div class="game-title">Marvel's Spider-Man 2</div>
+                </div>
+                <div class="game-card" style="background-image: url('game-vrchat.jpg');">
+                    <div class="game-title">VRChat</div>
                 </div>
             </div>
         </div>
