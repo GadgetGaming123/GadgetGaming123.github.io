@@ -489,6 +489,7 @@
 
     .games-box {
         position: relative;
+        width: 100%;
         background: rgba(6,14,26,0.85);
         box-shadow:
             0 0 18px rgba(53,212,255,0.25),
@@ -514,11 +515,13 @@
     }
 
     .games-scroll {
+        width: 100%;
         overflow: hidden;
     }
 
     .games-track {
         display: flex;
+        flex-wrap: nowrap;
         gap: 0;
         width: max-content;
         animation: games-marquee 40s linear infinite;
@@ -542,6 +545,14 @@
         display: flex;
         align-items: flex-end;
         overflow: hidden;
+        transform: scale(1);
+        transition: transform 0.25s ease;
+        z-index: 1;
+    }
+
+    .game-card:hover {
+        transform: scale(1.12);
+        z-index: 3;
     }
 
     .game-card .game-title {
