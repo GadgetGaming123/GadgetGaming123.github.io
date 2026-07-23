@@ -547,6 +547,7 @@
         align-items: flex-end;
         overflow: hidden;
         transition: flex-basis 0.25s ease;
+        cursor: pointer;
     }
 
     .game-card:hover {
@@ -564,6 +565,108 @@
         font-size: 16px;
         text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    }
+
+    /* ============ GAME DETAIL MODAL ============ */
+    .game-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(2,6,14,0.93);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        padding: 24px;
+    }
+
+    .game-modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .game-modal {
+        position: relative;
+        width: min(900px, 92vw);
+        max-height: 86vh;
+        display: flex;
+        background: linear-gradient(180deg, rgba(10,30,50,0.97), rgba(4,10,20,0.98));
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 24px rgba(53,212,255,0.35),
+            0 0 80px rgba(53,212,255,0.12),
+            inset 0 0 40px rgba(53,212,255,0.05);
+        overflow: hidden;
+        transform: scale(0.92);
+        transition: transform 0.25s ease;
+    }
+
+    .game-modal-overlay.active .game-modal {
+        transform: scale(1);
+    }
+
+    @media screen and (max-width: 768px) {
+        .game-modal { flex-direction: column; max-height: 90vh; overflow-y: auto; }
+    }
+
+    .game-modal-image {
+        position: relative;
+        flex: 0 0 42%;
+        min-height: 320px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        .game-modal-image { flex: 0 0 240px; min-height: 240px; }
+    }
+
+    .game-modal-info {
+        position: relative;
+        flex: 1;
+        padding: 40px 44px;
+        overflow-y: auto;
+    }
+
+    .game-modal-info h2 {
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 26px;
+        letter-spacing: 0.05em;
+        color: var(--holo-bright);
+        text-shadow: 0 0 12px rgba(53,212,255,0.6);
+        margin: 0 0 16px;
+        text-transform: uppercase;
+    }
+
+    .game-modal-info p {
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .game-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        z-index: 3;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(6,14,26,0.85);
+        border: 1px solid var(--holo-dim);
+        color: var(--holo-bright);
+        font-size: 18px;
+        font-family: 'Share Tech Mono', monospace;
+        cursor: pointer;
+    }
+
+    .game-modal-close:hover {
+        background: rgba(53,212,255,0.2);
     }
 
 </style>
@@ -665,50 +768,62 @@
             <div class="games-banner">My Favourite games of all time!</div>
             <div class="games-scroll" id="gamesScroll">
                 <div class="games-track">
-                    <div class="game-card" style="background-image: url('game-gmod.jpg');">
+                    <div class="game-card" style="background-image: url('game-gmod.jpg');" data-title="Garry's Mod" data-img="game-gmod.jpg" data-desc="Write your thoughts on Garry's Mod here.">
                         <div class="game-title">Garry's Mod</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
+                    <div class="game-card" style="background-image: url('game-hlalyx.jpg');" data-title="Half-Life: Alyx" data-img="game-hlalyx.jpg" data-desc="Write your thoughts on Half-Life: Alyx here.">
                         <div class="game-title">Half-Life: Alyx</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-minecraft.jpg');">
+                    <div class="game-card" style="background-image: url('game-minecraft.jpg');" data-title="Minecraft" data-img="game-minecraft.jpg" data-desc="Write your thoughts on Minecraft here.">
                         <div class="game-title">Minecraft</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-undertale.jpg');">
+                    <div class="game-card" style="background-image: url('game-undertale.jpg');" data-title="Undertale" data-img="game-undertale.jpg" data-desc="Write your thoughts on Undertale here.">
                         <div class="game-title">Undertale</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-notime.jpg');">
+                    <div class="game-card" style="background-image: url('game-notime.jpg');" data-title="No Time" data-img="game-notime.jpg" data-desc="Write your thoughts on No Time here.">
                         <div class="game-title">No Time</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-spiderman2.jpg');">
+                    <div class="game-card" style="background-image: url('game-spiderman2.jpg');" data-title="Marvel's Spider-Man 2" data-img="game-spiderman2.jpg" data-desc="Write your thoughts on Marvel's Spider-Man 2 here.">
                         <div class="game-title">Marvel's Spider-Man 2</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-vrchat.jpg');">
+                    <div class="game-card" style="background-image: url('game-vrchat.jpg');" data-title="VRChat" data-img="game-vrchat.jpg" data-desc="Write your thoughts on VRChat here.">
                         <div class="game-title">VRChat</div>
                     </div>
                     <!-- duplicate set for seamless looping -->
-                    <div class="game-card" style="background-image: url('game-gmod.jpg');">
+                    <div class="game-card" style="background-image: url('game-gmod.jpg');" data-title="Garry's Mod" data-img="game-gmod.jpg" data-desc="Write your thoughts on Garry's Mod here.">
                         <div class="game-title">Garry's Mod</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-hlalyx.jpg');">
+                    <div class="game-card" style="background-image: url('game-hlalyx.jpg');" data-title="Half-Life: Alyx" data-img="game-hlalyx.jpg" data-desc="Write your thoughts on Half-Life: Alyx here.">
                         <div class="game-title">Half-Life: Alyx</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-minecraft.jpg');">
+                    <div class="game-card" style="background-image: url('game-minecraft.jpg');" data-title="Minecraft" data-img="game-minecraft.jpg" data-desc="Write your thoughts on Minecraft here.">
                         <div class="game-title">Minecraft</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-undertale.jpg');">
+                    <div class="game-card" style="background-image: url('game-undertale.jpg');" data-title="Undertale" data-img="game-undertale.jpg" data-desc="Write your thoughts on Undertale here.">
                         <div class="game-title">Undertale</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-notime.jpg');">
+                    <div class="game-card" style="background-image: url('game-notime.jpg');" data-title="No Time" data-img="game-notime.jpg" data-desc="Write your thoughts on No Time here.">
                         <div class="game-title">No Time</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-spiderman2.jpg');">
+                    <div class="game-card" style="background-image: url('game-spiderman2.jpg');" data-title="Marvel's Spider-Man 2" data-img="game-spiderman2.jpg" data-desc="Write your thoughts on Marvel's Spider-Man 2 here.">
                         <div class="game-title">Marvel's Spider-Man 2</div>
                     </div>
-                    <div class="game-card" style="background-image: url('game-vrchat.jpg');">
+                    <div class="game-card" style="background-image: url('game-vrchat.jpg');" data-title="VRChat" data-img="game-vrchat.jpg" data-desc="Write your thoughts on VRChat here.">
                         <div class="game-title">VRChat</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ GAME DETAIL MODAL ============ -->
+    <div class="game-modal-overlay" id="gameModalOverlay">
+        <div class="game-modal">
+            <div class="game-modal-close" id="gameModalClose">&times;</div>
+            <div class="game-modal-image" id="gameModalImage"></div>
+            <div class="game-modal-info">
+                <h2 id="gameModalTitle">Game Title</h2>
+                <p id="gameModalDesc">Description goes here.</p>
             </div>
         </div>
     </div>
@@ -727,5 +842,37 @@
     <img src="websitenecromancer.png" class="necromancer-image">
     <img src="websitecavedweller.png" class="custom-image-cavedweller">
     <img src="websitefisherman.png" class="custom-image-fisherman">
+
+    <script>
+        (function () {
+            const cards = document.querySelectorAll('.game-card');
+            const overlay = document.getElementById('gameModalOverlay');
+            const modalImage = document.getElementById('gameModalImage');
+            const modalTitle = document.getElementById('gameModalTitle');
+            const modalDesc = document.getElementById('gameModalDesc');
+            const closeBtn = document.getElementById('gameModalClose');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    modalImage.style.backgroundImage = `url('${card.dataset.img}')`;
+                    modalTitle.textContent = card.dataset.title;
+                    modalDesc.textContent = card.dataset.desc;
+                    overlay.classList.add('active');
+                });
+            });
+
+            function closeModal() {
+                overlay.classList.remove('active');
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+        })();
+    </script>
 </body>
 </html>
