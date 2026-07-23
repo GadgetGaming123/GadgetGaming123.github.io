@@ -517,6 +517,11 @@
     .games-scroll {
         width: 100%;
         overflow: hidden;
+        cursor: grab;
+    }
+
+    .games-scroll.dragging {
+        cursor: grabbing;
     }
 
     .games-track {
@@ -525,16 +530,8 @@
         align-items: flex-start;
         gap: 0;
         width: max-content;
-        animation: games-marquee 40s linear infinite;
-    }
-
-    .games-scroll:hover .games-track {
-        animation-play-state: paused;
-    }
-
-    @keyframes games-marquee {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+        will-change: transform;
+        user-select: none;
     }
 
     .game-card {
@@ -855,6 +852,7 @@
 
             cards.forEach(card => {
                 card.addEventListener('click', () => {
+                    if (card.dataset.suppressClick === '1') return;
                     modalImage.style.backgroundImage = `url('${card.dataset.img}')`;
                     modalTitle.textContent = card.dataset.title;
                     modalDesc.textContent = card.dataset.desc;
@@ -873,6 +871,79 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeModal();
             });
+        })();
+
+        (function () {
+            const scroller = document.getElementById('gamesScroll');
+            if (!scroller) return;
+            const track = scroller.querySelector('.games-track');
+            if (!track) return;
+
+            const SPEED = 0.4; // px per frame, slow auto-drift
+            let offset = 0;          // current scroll position (px)
+            let dragging = false;
+            let startX = 0;
+            let startOffset = 0;
+            let moved = 0;           // total drag distance, to distinguish click vs drag
+
+            function normalize() {
+                const halfWidth = track.scrollWidth / 2;
+                if (halfWidth <= 0) return;
+                offset = ((offset % halfWidth) + halfWidth) % halfWidth;
+            }
+
+            function render() {
+                track.style.transform = `translateX(${-offset}px)`;
+            }
+
+            function tick() {
+                if (!dragging) {
+                    offset += SPEED;
+                    normalize();
+                    render();
+                }
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+
+            function pointerDown(e) {
+                dragging = true;
+                moved = 0;
+                startX = e.clientX;
+                startOffset = offset;
+                scroller.classList.add('dragging');
+                scroller.setPointerCapture(e.pointerId);
+            }
+
+            function pointerMove(e) {
+                if (!dragging) return;
+                const dx = e.clientX - startX;
+                moved = Math.max(moved, Math.abs(dx));
+                offset = startOffset - dx;
+                normalize();
+                render();
+            }
+
+            function pointerUp(e) {
+                if (!dragging) return;
+                dragging = false;
+                scroller.classList.remove('dragging');
+
+                // if the pointer barely moved, treat it as a click and let it
+                // reach the game-card's click handler normally; otherwise
+                // suppress the click that browsers fire after a drag
+                const wasDrag = moved > 6;
+                if (wasDrag && e.target.closest('.game-card')) {
+                    const card = e.target.closest('.game-card');
+                    card.dataset.suppressClick = '1';
+                    setTimeout(() => { card.dataset.suppressClick = '0'; }, 0);
+                }
+            }
+
+            scroller.addEventListener('pointerdown', pointerDown);
+            scroller.addEventListener('pointermove', pointerMove);
+            scroller.addEventListener('pointerup', pointerUp);
+            scroller.addEventListener('pointercancel', pointerUp);
         })();
     </script>
 </body>
