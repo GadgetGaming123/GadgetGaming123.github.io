@@ -843,22 +843,18 @@
 
     <script>
         (function () {
-            const cards = document.querySelectorAll('.game-card');
             const overlay = document.getElementById('gameModalOverlay');
             const modalImage = document.getElementById('gameModalImage');
             const modalTitle = document.getElementById('gameModalTitle');
             const modalDesc = document.getElementById('gameModalDesc');
             const closeBtn = document.getElementById('gameModalClose');
 
-            cards.forEach(card => {
-                card.addEventListener('click', () => {
-                    if (card.dataset.suppressClick === '1') return;
-                    modalImage.style.backgroundImage = `url('${card.dataset.img}')`;
-                    modalTitle.textContent = card.dataset.title;
-                    modalDesc.textContent = card.dataset.desc;
-                    overlay.classList.add('active');
-                });
-            });
+            function openModal(card) {
+                modalImage.style.backgroundImage = `url('${card.dataset.img}')`;
+                modalTitle.textContent = card.dataset.title;
+                modalDesc.textContent = card.dataset.desc;
+                overlay.classList.add('active');
+            }
 
             function closeModal() {
                 overlay.classList.remove('active');
@@ -871,9 +867,7 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeModal();
             });
-        })();
 
-        (function () {
             const scroller = document.getElementById('gamesScroll');
             if (!scroller) return;
             const track = scroller.querySelector('.games-track');
@@ -885,6 +879,7 @@
             let startX = 0;
             let startOffset = 0;
             let moved = 0;           // total drag distance, to distinguish click vs drag
+            let downTarget = null;
 
             function normalize() {
                 const halfWidth = track.scrollWidth / 2;
@@ -911,6 +906,7 @@
                 moved = 0;
                 startX = e.clientX;
                 startOffset = offset;
+                downTarget = e.target.closest('.game-card');
                 scroller.classList.add('dragging');
                 scroller.setPointerCapture(e.pointerId);
             }
@@ -928,16 +924,13 @@
                 if (!dragging) return;
                 dragging = false;
                 scroller.classList.remove('dragging');
+                scroller.releasePointerCapture(e.pointerId);
 
-                // if the pointer barely moved, treat it as a click and let it
-                // reach the game-card's click handler normally; otherwise
-                // suppress the click that browsers fire after a drag
-                const wasDrag = moved > 6;
-                if (wasDrag && e.target.closest('.game-card')) {
-                    const card = e.target.closest('.game-card');
-                    card.dataset.suppressClick = '1';
-                    setTimeout(() => { card.dataset.suppressClick = '0'; }, 0);
+                // barely moved = treat as a genuine click and open that game's modal
+                if (moved <= 6 && downTarget) {
+                    openModal(downTarget);
                 }
+                downTarget = null;
             }
 
             scroller.addEventListener('pointerdown', pointerDown);
