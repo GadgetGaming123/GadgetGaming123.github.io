@@ -463,6 +463,15 @@
         margin: -240px auto 80px;
     }
 
+    .games-section::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        background: var(--holo-dim);
+        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
+        z-index: -1;
+    }
+
     @media screen and (max-width: 768px) {
         .games-section { width: 92%; }
     }
@@ -482,7 +491,6 @@
         letter-spacing: 0.03em;
         padding: 16px 60px 16px 26px;
         clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
-        border-bottom: 1px solid var(--holo-dim);
         box-shadow: 0 6px 18px rgba(0,0,0,0.35);
         pointer-events: none;
     }
@@ -497,15 +505,6 @@
             inset 0 0 40px rgba(53,212,255,0.05);
         clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
         overflow: visible;
-    }
-
-    .games-box::before {
-        content: '';
-        position: absolute;
-        inset: -1px;
-        background: var(--holo-dim);
-        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
-        z-index: -1;
     }
 
     .games-box .scanlines,
@@ -763,7 +762,10 @@
             <div class="scanlines"></div>
             <div class="corner-tl"></div>
             <div class="corner-br"></div>
-            <div class="games-banner">My Favourite games of all time!</div>
+            <div class="games-banner">
+                <div class="scanlines"></div>
+                My Favourite games of all time!
+            </div>
             <div class="games-scroll" id="gamesScroll">
                 <div class="games-track">
                     <div class="game-card" style="background-image: url('game-gmod.jpg');" data-title="Garry's Mod" data-img="game-gmod.jpg" data-desc="It all started when I discovered the now long dead and buried Youtube channel &quot;Venturiantale&quot;. At the time, they were just starting their adventures in the game, but were already off to a good start with their improvy, roleplay like humor. I instantly fell in love with their style. I was addicted to them and desperately wanted to be like them. A part of me still does, despite everything. After years and years of watching - I saw other youtubers playing the game too. DanTDM started playing and I felt so sad, that the game was getting popular with my other favourite youtubers and I wasn't allowed to play. After years I finally convinced my parents to let me buy it, on the strict promise I wouldn't use any guns.&#10;&#10;Venturiantale defined my entire childhood. My sense of humor, my creativity, it all stems from them. Right after I got the game, I never logged off. I was on every day, with new mods, new maps, and new little adventures in my brain. I've done absolutely everything you can in that game and I wouldn't trade it for the world. In the last few years though, my interest has dried, and now I only play 15 minutes or so once every couple of months. It's sad, but I think I'm moving on now. That doesn't change that Gmod is one of the greatest games I've ever played.">
