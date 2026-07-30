@@ -485,6 +485,18 @@
         z-index: -1;
     }
 
+    /* Mirror the second box */
+    .games-section:nth-child(2)::before {
+        clip-path: polygon(
+            40px 0,
+            100% 0,
+            100% calc(100% - 40px),
+            calc(100% - 40px) 100%,
+            0 100%,
+            0 40px
+        );
+    }
+
     @media screen and (max-width: 768px) {
         .games-wrapper { width: 92%; flex-direction: column; align-items: center; }
         .games-section { width: 92%; min-width: 0; }
