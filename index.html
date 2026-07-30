@@ -456,11 +456,24 @@
         }
     }
     /* ============ FAVOURITE GAMES SHOWCASE ============ */
-    .games-section {
-        width: 38%;
+    .games-wrapper {
+        width: 92%;
         position: relative;
         z-index: 5;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
         margin: -240px auto 80px;
+    }
+
+    .games-section {
+        width: calc(50% - 12px);
+        min-width: 340px;
+        position: relative;
+        z-index: 5;
+        margin: 0;
     }
 
     .games-section::before {
@@ -473,7 +486,8 @@
     }
 
     @media screen and (max-width: 768px) {
-        .games-section { width: 92%; }
+        .games-wrapper { flex-direction: column; align-items: center; }
+        .games-section { width: 92%; min-width: 0; }
     }
 
     .games-banner {
@@ -757,6 +771,7 @@
     </div>
 
     <!-- ============ FAVOURITE GAMES SHOWCASE ============ -->
+    <div class="games-wrapper">
     <div class="games-section">
         <div class="games-box">
             <div class="scanlines"></div>
@@ -816,6 +831,26 @@
         </div>
     </div>
 
+    <div class="games-section">
+        <div class="games-box">
+            <div class="scanlines"></div>
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="games-banner">
+                <div class="scanlines"></div>
+                My Second Favourite Games!
+            </div>
+            <div class="games-scroll" id="gamesScroll2">
+                <div class="games-track">
+                    <div class="game-card" style="background-image: url('game-gmod.jpg');" data-title="Garry's Mod" data-img="game-gmod.jpg" data-desc="Replace this card with a new game! Copy a game-card block from the first section, swap the background-image, data-title, data-img, and data-desc, then update the game-title text below.">
+                        <div class="game-title">Add Your Game</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
     <!-- ============ GAME DETAIL MODAL ============ -->
     <div class="game-modal-overlay" id="gameModalOverlay">
         <div class="game-modal">
@@ -870,75 +905,79 @@
                 if (e.key === 'Escape') closeModal();
             });
 
-            const scroller = document.getElementById('gamesScroll');
-            if (!scroller) return;
-            const track = scroller.querySelector('.games-track');
-            if (!track) return;
+            const scrollers = document.querySelectorAll('.games-scroll');
+            if (!scrollers.length) return;
 
             const SPEED = 0.4; // px per frame, slow auto-drift
-            let offset = 0;          // current scroll position (px)
-            let dragging = false;
-            let startX = 0;
-            let startOffset = 0;
-            let moved = 0;           // total drag distance, to distinguish click vs drag
-            let downTarget = null;
 
-            function normalize() {
-                const halfWidth = track.scrollWidth / 2;
-                if (halfWidth <= 0) return;
-                offset = ((offset % halfWidth) + halfWidth) % halfWidth;
-            }
+            scrollers.forEach((scroller) => {
+                const track = scroller.querySelector('.games-track');
+                if (!track) return;
 
-            function render() {
-                track.style.transform = `translateX(${-offset}px)`;
-            }
+                let offset = 0;          // current scroll position (px)
+                let dragging = false;
+                let startX = 0;
+                let startOffset = 0;
+                let moved = 0;           // total drag distance, to distinguish click vs drag
+                let downTarget = null;
 
-            function tick() {
-                if (!dragging) {
-                    offset += SPEED;
+                function normalize() {
+                    const halfWidth = track.scrollWidth / 2;
+                    if (halfWidth <= 0) return;
+                    offset = ((offset % halfWidth) + halfWidth) % halfWidth;
+                }
+
+                function render() {
+                    track.style.transform = `translateX(${-offset}px)`;
+                }
+
+                function tick() {
+                    if (!dragging) {
+                        offset += SPEED;
+                        normalize();
+                        render();
+                    }
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+
+                function pointerDown(e) {
+                    dragging = true;
+                    moved = 0;
+                    startX = e.clientX;
+                    startOffset = offset;
+                    downTarget = e.target.closest('.game-card');
+                    scroller.classList.add('dragging');
+                    scroller.setPointerCapture(e.pointerId);
+                }
+
+                function pointerMove(e) {
+                    if (!dragging) return;
+                    const dx = e.clientX - startX;
+                    moved = Math.max(moved, Math.abs(dx));
+                    offset = startOffset - dx;
                     normalize();
                     render();
                 }
-                requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
 
-            function pointerDown(e) {
-                dragging = true;
-                moved = 0;
-                startX = e.clientX;
-                startOffset = offset;
-                downTarget = e.target.closest('.game-card');
-                scroller.classList.add('dragging');
-                scroller.setPointerCapture(e.pointerId);
-            }
+                function pointerUp(e) {
+                    if (!dragging) return;
+                    dragging = false;
+                    scroller.classList.remove('dragging');
+                    scroller.releasePointerCapture(e.pointerId);
 
-            function pointerMove(e) {
-                if (!dragging) return;
-                const dx = e.clientX - startX;
-                moved = Math.max(moved, Math.abs(dx));
-                offset = startOffset - dx;
-                normalize();
-                render();
-            }
-
-            function pointerUp(e) {
-                if (!dragging) return;
-                dragging = false;
-                scroller.classList.remove('dragging');
-                scroller.releasePointerCapture(e.pointerId);
-
-                // barely moved = treat as a genuine click and open that game's modal
-                if (moved <= 6 && downTarget) {
-                    openModal(downTarget);
+                    // barely moved = treat as a genuine click and open that game's modal
+                    if (moved <= 6 && downTarget) {
+                        openModal(downTarget);
+                    }
+                    downTarget = null;
                 }
-                downTarget = null;
-            }
 
-            scroller.addEventListener('pointerdown', pointerDown);
-            scroller.addEventListener('pointermove', pointerMove);
-            scroller.addEventListener('pointerup', pointerUp);
-            scroller.addEventListener('pointercancel', pointerUp);
+                scroller.addEventListener('pointerdown', pointerDown);
+                scroller.addEventListener('pointermove', pointerMove);
+                scroller.addEventListener('pointerup', pointerUp);
+                scroller.addEventListener('pointercancel', pointerUp);
+            });
         })();
     </script>
 </body>
