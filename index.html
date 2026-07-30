@@ -529,8 +529,27 @@
             0 0 18px rgba(53,212,255,0.25),
             0 0 60px rgba(53,212,255,0.08),
             inset 0 0 40px rgba(53,212,255,0.05);
-        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
+        clip-path: polygon(
+        0 0,
+        calc(100% - 40px) 0,
+        100% 40px,
+        100% 100%,
+        40px 100%,
+        0 calc(100% - 40px)
+        );
         overflow: visible;
+    }
+
+    /* Mirror second box */
+    .games-section:nth-child(2) .games-box {
+        clip-path: polygon(
+            40px 0,
+            100% 0,
+            100% calc(100% - 40px),
+            calc(100% - 40px) 100%,
+            0 100%,
+            0 40px
+        );
     }
 
     .games-box .scanlines,
