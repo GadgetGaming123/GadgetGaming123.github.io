@@ -486,6 +486,17 @@
     }
 
     /* Mirror the second box */
+    .games-section:nth-child(2)::before {
+        clip-path: polygon(
+            40px 0,
+            100% 0,
+            100% calc(100% - 40px),
+            calc(100% - 40px) 100%,
+            0 100%,
+            0 40px
+        );
+    }
+
     .games-section:nth-child(2) .games-banner {
         padding: 12px 20px 12px 46px;
         clip-path: polygon(
@@ -555,7 +566,9 @@
 
     .games-box .scanlines,
     .games-box .corner-tl,
-    .games-box .corner-br {
+    .games-box .corner-br,
+    .games-box .corner-tr,
+    .games-box .corner-bl {
         pointer-events: none;
     }
 
@@ -866,14 +879,17 @@
     <div class="games-section">
         <div class="games-box">
             <div class="scanlines"></div>
-            <div class="corner-tl"></div>
-            <div class="corner-br"></div>
+            <div class="corner-tr"></div>
+            <div class="corner-bl"></div>
             <div class="games-banner">
                 <div class="scanlines"></div>
                 My Second Favourite Games!
             </div>
             <div class="games-scroll" id="gamesScroll2">
                 <div class="games-track">
+                    <div class="game-card" style="background-image: url('game-gmod.jpg');" data-title="Garry's Mod" data-img="game-gmod.jpg" data-desc="Replace this card with a new game! Copy a game-card block from the first section, swap the background-image, data-title, data-img, and data-desc, then update the game-title text below.">
+                        <div class="game-title">Add Your Game</div>
+                    </div>
                     <div class="game-card" style="background-image: url('game-gmod.jpg');" data-title="Garry's Mod" data-img="game-gmod.jpg" data-desc="Replace this card with a new game! Copy a game-card block from the first section, swap the background-image, data-title, data-img, and data-desc, then update the game-title text below.">
                         <div class="game-title">Add Your Game</div>
                     </div>
