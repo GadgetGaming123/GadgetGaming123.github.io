@@ -459,11 +459,15 @@
     .holo-divider {
         width: 62%;
         height: 1px;
-        margin: 6px auto 30px;
+        margin: 18px auto;
         background: linear-gradient(90deg, transparent, var(--holo-dim) 15%, var(--holo) 50%, var(--holo-dim) 85%, transparent);
         box-shadow: 0 0 8px rgba(53,212,255,0.5);
         position: relative;
         z-index: 9;
+    }
+
+    .holo-divider-top {
+        top: -260px;
     }
 
     @media screen and (max-width: 768px) {
@@ -829,7 +833,7 @@
     </div>
 
     <!-- ============ FAVOURITE GAMES SHOWCASE ============ -->
-    <div class="holo-divider"></div>
+    <div class="holo-divider holo-divider-top"></div>
     <div class="games-wrapper">
     <div class="games-section">
         <div class="games-box">
