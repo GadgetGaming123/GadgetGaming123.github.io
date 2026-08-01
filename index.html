@@ -456,6 +456,20 @@
         }
     }
     /* ============ FAVOURITE GAMES SHOWCASE ============ */
+    .holo-divider {
+        width: 62%;
+        height: 1px;
+        margin: 18px auto;
+        background: linear-gradient(90deg, transparent, var(--holo-dim) 15%, var(--holo) 50%, var(--holo-dim) 85%, transparent);
+        box-shadow: 0 0 8px rgba(53,212,255,0.5);
+        position: relative;
+        z-index: 5;
+    }
+
+    @media screen and (max-width: 768px) {
+        .holo-divider { width: 90%; }
+    }
+
     .games-wrapper {
         width: calc(70% - 80px);
         position: relative;
@@ -815,6 +829,8 @@
     </div>
 
     <!-- ============ FAVOURITE GAMES SHOWCASE ============ -->
+    <div class="holo-divider"></div>
+    <div class="holo-divider"></div>
     <div class="games-wrapper">
     <div class="games-section">
         <div class="games-box">
@@ -1012,6 +1028,8 @@
         </div>
     </div>
     </div>
+
+    <div class="holo-divider"></div>
 
     <!-- ============ GAME DETAIL MODAL ============ -->
     <div class="game-modal-overlay" id="gameModalOverlay">
