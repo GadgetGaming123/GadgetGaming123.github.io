@@ -640,6 +640,131 @@
         background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0));
     }
 
+    /* ============ MY PROJECTS ============ */
+    .projects-wrap {
+        width: 62%;
+        position: relative;
+        z-index: 5;
+        margin: 40px auto 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        .projects-wrap { width: 92%; }
+    }
+
+    .projects-banner {
+        position: relative;
+        z-index: 7;
+        display: inline-block;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(10,30,50,0.95), rgba(4,10,20,0.97));
+        color: var(--holo-bright);
+        text-shadow: 0 0 12px rgba(53,212,255,0.6);
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 12px 36px;
+        border: 1px solid var(--holo-dim);
+        box-shadow: 0 0 16px rgba(53,212,255,0.35), 0 6px 14px rgba(0,0,0,0.4);
+        margin-bottom: -1px;
+    }
+
+    .projects-grid {
+        position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        background: rgba(6,14,26,0.85);
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 18px rgba(53,212,255,0.25),
+            0 0 60px rgba(53,212,255,0.08),
+            inset 0 0 40px rgba(53,212,255,0.05);
+        overflow: hidden;
+        padding-top: 20px;
+    }
+
+    .projects-grid .scanlines,
+    .projects-grid .corner-tl,
+    .projects-grid .corner-tr,
+    .projects-grid .corner-bl,
+    .projects-grid .corner-br {
+        pointer-events: none;
+    }
+
+    .projects-cell {
+        position: relative;
+        z-index: 4;
+        padding: 24px 26px;
+        border-right: 1px solid rgba(53,212,255,0.25);
+        border-bottom: 1px solid rgba(53,212,255,0.25);
+    }
+
+    .projects-cell:nth-child(2) {
+        border-right: none;
+    }
+
+    .projects-cell:nth-child(3),
+    .projects-cell:nth-child(4) {
+        border-bottom: none;
+    }
+
+    .projects-cell h3 {
+        margin: 0 0 16px;
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.1em;
+        color: var(--holo-bright);
+        text-shadow: 0 0 10px rgba(53,212,255,0.5);
+        text-transform: uppercase;
+    }
+
+    .projects-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .project-thumb {
+        position: relative;
+        width: 72px;
+        height: 72px;
+        border-radius: 6px;
+        overflow: hidden;
+        display: block;
+        text-decoration: none;
+        box-shadow: 0 0 8px rgba(53,212,255,0.2);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .project-thumb:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 14px rgba(53,212,255,0.45);
+    }
+
+    .project-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .project-thumb .play-icon {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
+
+
     /* ============ GAME DETAIL MODAL ============ */
     .game-modal-overlay {
         position: fixed;
@@ -1034,6 +1159,55 @@
     </div>
 
     <div class="holo-divider"></div>
+
+    <!-- ============ MY PROJECTS ============ -->
+    <div class="projects-wrap">
+        <div class="projects-banner">My Projects</div>
+        <div class="projects-grid">
+            <div class="scanlines"></div>
+            <div class="corner-tl"></div>
+            <div class="corner-tr"></div>
+            <div class="corner-bl"></div>
+            <div class="corner-br"></div>
+            <div class="projects-cell">
+                <h3>YouTube</h3>
+                <div class="projects-items">
+                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                        <img src="project-yt1.jpg" alt="YouTube video 1">
+                        <img src="youtube-icon.png" class="play-icon" alt="">
+                    </a>
+                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                        <img src="project-yt2.jpg" alt="YouTube video 2">
+                        <img src="youtube-icon.png" class="play-icon" alt="">
+                    </a>
+                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                        <img src="project-yt3.jpg" alt="YouTube video 3">
+                        <img src="youtube-icon.png" class="play-icon" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="projects-cell">
+                <h3>Minecraft Projects</h3>
+                <div class="projects-items">
+                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                        <img src="project-mc1.jpg" alt="Minecraft model 1">
+                    </a>
+                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                        <img src="project-mc2.jpg" alt="Minecraft model 2">
+                    </a>
+                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                        <img src="project-other1.jpg" alt="Other project 1">
+                    </a>
+                </div>
+            </div>
+            <div class="projects-cell">
+                <h3>TBD</h3>
+            </div>
+            <div class="projects-cell">
+                <h3>TBD</h3>
+            </div>
+        </div>
+    </div>
 
     <!-- ============ GAME DETAIL MODAL ============ -->
     <div class="game-modal-overlay" id="gameModalOverlay">
