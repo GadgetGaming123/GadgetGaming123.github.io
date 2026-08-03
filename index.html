@@ -766,6 +766,84 @@
     }
 
 
+    /* ============ YOUTUBE VIDEO MODAL ============ */
+    .youtube-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(2,6,14,0.93);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        padding: 24px;
+    }
+
+    .youtube-modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .youtube-modal {
+        position: relative;
+        width: min(900px, 92vw);
+        background: linear-gradient(180deg, rgba(10,30,50,0.97), rgba(4,10,20,0.98));
+        border: 1px solid var(--holo-dim);
+        box-shadow:
+            0 0 24px rgba(53,212,255,0.35),
+            0 0 80px rgba(53,212,255,0.12),
+            inset 0 0 40px rgba(53,212,255,0.05);
+        overflow: hidden;
+        padding: 40px;
+        transform: scale(0.92);
+        transition: transform 0.25s ease;
+    }
+
+    .youtube-modal-overlay.active .youtube-modal {
+        transform: scale(1);
+    }
+
+    .youtube-modal-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000000;
+        border: 1px solid var(--holo-dim);
+        box-shadow: 0 0 16px rgba(53,212,255,0.3);
+    }
+
+    .youtube-modal-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .youtube-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        z-index: 3;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(6,14,26,0.85);
+        border: 1px solid var(--holo-dim);
+        color: var(--holo-bright);
+        font-size: 18px;
+        font-family: 'Share Tech Mono', monospace;
+        cursor: pointer;
+    }
+
+    .youtube-modal-close:hover {
+        background: rgba(53,212,255,0.2);
+    }
+
     /* ============ GAME DETAIL MODAL ============ */
     .game-modal-overlay {
         position: fixed;
@@ -1173,59 +1251,59 @@
             <div class="projects-cell">
                 <h3>YouTube</h3>
                 <div class="projects-items">
-                    <a href="https://youtu.be/VaPuYeLqAvs?si=WODgyc0jzRAJDHhp" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtu.be/VaPuYeLqAvs?si=WODgyc0jzRAJDHhp" data-embed="https://www.youtube.com/embed/VaPuYeLqAvs" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="sunnyplease.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/playlist?list=PLj3BVhUzTeomVTH2BkWpjX8DC3ZI3krX0" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/playlist?list=PLj3BVhUzTeomVTH2BkWpjX8DC3ZI3krX0" data-embed="https://www.youtube.com/embed/videoseries?list=PLj3BVhUzTeomVTH2BkWpjX8DC3ZI3krX0" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="alastorimage.jpg" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=ivGlMBJnVAU" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=ivGlMBJnVAU" data-embed="https://www.youtube.com/embed/ivGlMBJnVAU" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="undertalerealistic.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://youtu.be/40JcoZ40D4g" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtu.be/40JcoZ40D4g" data-embed="https://www.youtube.com/embed/40JcoZ40D4g" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="cround.jpg" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://youtu.be/H0MUSCrZrnE" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtu.be/H0MUSCrZrnE" data-embed="https://www.youtube.com/embed/H0MUSCrZrnE" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="gman.jpg" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=Q4c3wSPWq6Y" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=Q4c3wSPWq6Y" data-embed="https://www.youtube.com/embed/Q4c3wSPWq6Y" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="4GET.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=xOVQyeTSyHE" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=xOVQyeTSyHE" data-embed="https://www.youtube.com/embed/xOVQyeTSyHE" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="logrecord.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=-0MbqQhiciA&list=PLTdGWqHeNjK4" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=-0MbqQhiciA&list=PLTdGWqHeNjK4" data-embed="https://www.youtube.com/embed/-0MbqQhiciA?list=PLTdGWqHeNjK4" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="ttt.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=rdmxSOyuLuY&list=PLj3BVhUzTeontSEwG8mj1APau3iWzFgPx" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=rdmxSOyuLuY&list=PLj3BVhUzTeontSEwG8mj1APau3iWzFgPx" data-embed="https://www.youtube.com/embed/rdmxSOyuLuY?list=PLj3BVhUzTeontSEwG8mj1APau3iWzFgPx" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="oldfnaf.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://youtu.be/eNkDcE5HtpA" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtu.be/eNkDcE5HtpA" data-embed="https://www.youtube.com/embed/eNkDcE5HtpA" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="fnafralsei.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://youtu.be/rFls4BM5uwM" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtu.be/rFls4BM5uwM" data-embed="https://www.youtube.com/embed/rFls4BM5uwM" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="birdbrainicon.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=iWi8FCWqhsU" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=iWi8FCWqhsU" data-embed="https://www.youtube.com/embed/iWi8FCWqhsU" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="ralseigman.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/watch?v=M70JTV4SOWA" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=M70JTV4SOWA" data-embed="https://www.youtube.com/embed/M70JTV4SOWA" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="abandoned.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
-                    <a href="https://www.youtube.com/playlist?list=PLj3BVhUzTeonSRUPpBgimdgaFQV5nUZdk" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/playlist?list=PLj3BVhUzTeonSRUPpBgimdgaFQV5nUZdk" data-embed="https://www.youtube.com/embed/videoseries?list=PLj3BVhUzTeonSRUPpBgimdgaFQV5nUZdk" class="project-thumb youtube-modal-trigger" target="_blank" rel="noopener noreferrer">
                         <img src="undertalesongs.png" alt="YouTube video">
                         <img src="youtube-icon2.png" class="play-icon" alt="">
                     </a>
@@ -1266,6 +1344,16 @@
         </div>
     </div>
 
+    <!-- ============ YOUTUBE VIDEO MODAL ============ -->
+    <div class="youtube-modal-overlay" id="youtubeModalOverlay">
+        <div class="youtube-modal">
+            <div class="youtube-modal-close" id="youtubeModalClose">&times;</div>
+            <div class="youtube-modal-frame">
+                <iframe id="youtubeModalIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- ============ EXISTING SITE CONTENT (widened) ============ -->
     <p class="custom-text">Custom Player Models</p>
     <img src="websitemvgadget.gif" class="custom-image">
@@ -1284,6 +1372,37 @@
     <img src="websitefisherman.png" class="custom-image-fisherman">
 
     <script>
+        (function () {
+            const ytOverlay = document.getElementById('youtubeModalOverlay');
+            const ytIframe = document.getElementById('youtubeModalIframe');
+            const ytCloseBtn = document.getElementById('youtubeModalClose');
+
+            function openYoutubeModal(embedUrl) {
+                ytIframe.src = embedUrl + (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+                ytOverlay.classList.add('active');
+            }
+
+            function closeYoutubeModal() {
+                ytOverlay.classList.remove('active');
+                ytIframe.src = ''; // stop playback
+            }
+
+            document.querySelectorAll('.youtube-modal-trigger').forEach((trigger) => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openYoutubeModal(trigger.dataset.embed);
+                });
+            });
+
+            ytCloseBtn.addEventListener('click', closeYoutubeModal);
+            ytOverlay.addEventListener('click', (e) => {
+                if (e.target === ytOverlay) closeYoutubeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeYoutubeModal();
+            });
+        })();
+
         (function () {
             const overlay = document.getElementById('gameModalOverlay');
             const modalImage = document.getElementById('gameModalImage');
