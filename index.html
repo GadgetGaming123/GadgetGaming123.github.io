@@ -799,6 +799,15 @@
         padding: 40px;
         transform: scale(0.92);
         transition: transform 0.25s ease;
+        animation: flicker 6s infinite;
+    }
+
+    .youtube-modal .scanlines,
+    .youtube-modal .corner-tl,
+    .youtube-modal .corner-tr,
+    .youtube-modal .corner-bl,
+    .youtube-modal .corner-br {
+        pointer-events: none;
     }
 
     .youtube-modal-overlay.active .youtube-modal {
@@ -1347,6 +1356,11 @@
     <!-- ============ YOUTUBE VIDEO MODAL ============ -->
     <div class="youtube-modal-overlay" id="youtubeModalOverlay">
         <div class="youtube-modal">
+            <div class="scanlines"></div>
+            <div class="corner-tl"></div>
+            <div class="corner-tr"></div>
+            <div class="corner-bl"></div>
+            <div class="corner-br"></div>
             <div class="youtube-modal-close" id="youtubeModalClose">&times;</div>
             <div class="youtube-modal-frame">
                 <iframe id="youtubeModalIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
