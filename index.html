@@ -766,6 +766,108 @@
     }
 
 
+    /* ============ MINECRAFT PROJECTS MODAL (purple) ============ */
+    .mc-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(2,6,14,0.93);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        padding: 24px;
+    }
+
+    .mc-modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mc-modal {
+        position: relative;
+        width: min(420px, 90vw);
+        height: min(650px, 85vh);
+        background: #08050c;
+        border: 2px solid #8a2be2;
+        box-shadow:
+            0 0 24px rgba(138,43,226,0.5),
+            0 0 80px rgba(138,43,226,0.2),
+            inset 0 0 40px rgba(138,43,226,0.08);
+        overflow-y: auto;
+        padding: 20px;
+        transform: scale(0.92);
+        transition: transform 0.25s ease;
+        animation: flicker 6s infinite;
+    }
+
+    .mc-modal-overlay.active .mc-modal {
+        transform: scale(1);
+    }
+
+    .mc-modal .scanlines {
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(180,110,255,0.06) 0px,
+            rgba(180,110,255,0.06) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+        pointer-events: none;
+    }
+
+    .mc-corner-tl, .mc-corner-tr, .mc-corner-bl, .mc-corner-br {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        z-index: 6;
+        pointer-events: none;
+    }
+    .mc-corner-tl { top: -2px; left: -2px; border-top: 2px solid #c58bff; border-left: 2px solid #c58bff; }
+    .mc-corner-tr { top: -2px; right: -2px; border-top: 2px solid #c58bff; border-right: 2px solid #c58bff; }
+    .mc-corner-bl { bottom: -2px; left: -2px; border-bottom: 2px solid #c58bff; border-left: 2px solid #c58bff; }
+    .mc-corner-br { bottom: -2px; right: -2px; border-bottom: 2px solid #c58bff; border-right: 2px solid #c58bff; }
+
+    .mc-modal-grid {
+        position: relative;
+        z-index: 4;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
+    .mc-modal-cell {
+        aspect-ratio: 1 / 1;
+        background: #000000;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 6px rgba(138,43,226,0.35), inset 0 0 10px rgba(138,43,226,0.15);
+    }
+
+    .mc-modal-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        z-index: 7;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(20,8,30,0.9);
+        border: 1px solid #8a2be2;
+        color: #d9b3ff;
+        font-size: 17px;
+        font-family: 'Share Tech Mono', monospace;
+        cursor: pointer;
+    }
+
+    .mc-modal-close:hover {
+        background: rgba(138,43,226,0.25);
+    }
+
     /* ============ YOUTUBE VIDEO MODAL ============ */
     .youtube-modal-overlay {
         position: fixed;
@@ -1322,7 +1424,7 @@
             <div class="projects-cell">
                 <h3>Minecraft Projects</h3>
                 <div class="projects-items">
-                    <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
+                    <a href="#" class="project-thumb minecraft-modal-trigger" id="mcModalTrigger">
                         <img src="project-mc1.jpg" alt="Minecraft model 1">
                     </a>
                     <a href="#" class="project-thumb" target="_blank" rel="noopener noreferrer">
@@ -1350,6 +1452,36 @@
             <div class="game-modal-info">
                 <h2 id="gameModalTitle">Game Title</h2>
                 <p id="gameModalDesc">Description goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MINECRAFT PROJECTS MODAL ============ -->
+    <div class="mc-modal-overlay" id="mcModalOverlay">
+        <div class="mc-modal">
+            <div class="scanlines"></div>
+            <div class="mc-corner-tl"></div>
+            <div class="mc-corner-tr"></div>
+            <div class="mc-corner-bl"></div>
+            <div class="mc-corner-br"></div>
+            <div class="mc-modal-close" id="mcModalClose">&times;</div>
+            <div class="mc-modal-grid" id="mcModalGrid">
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
+                <div class="mc-modal-cell"></div>
             </div>
         </div>
     </div>
@@ -1387,6 +1519,35 @@
     <img src="websitefisherman.png" class="custom-image-fisherman">
 
     <script>
+        (function () {
+            const mcOverlay = document.getElementById('mcModalOverlay');
+            const mcCloseBtn = document.getElementById('mcModalClose');
+            const mcTrigger = document.getElementById('mcModalTrigger');
+
+            function openMcModal() {
+                mcOverlay.classList.add('active');
+            }
+
+            function closeMcModal() {
+                mcOverlay.classList.remove('active');
+            }
+
+            if (mcTrigger) {
+                mcTrigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openMcModal();
+                });
+            }
+
+            mcCloseBtn.addEventListener('click', closeMcModal);
+            mcOverlay.addEventListener('click', (e) => {
+                if (e.target === mcOverlay) closeMcModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMcModal();
+            });
+        })();
+
         (function () {
             const ytOverlay = document.getElementById('youtubeModalOverlay');
             const ytIframe = document.getElementById('youtubeModalIframe');
