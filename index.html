@@ -801,6 +801,19 @@
         transform: scale(0.92);
         transition: transform 0.25s ease;
         animation: flicker 6s infinite;
+        scrollbar-width: thin;
+        scrollbar-color: #8a2be2 #0a0510;
+    }
+
+    .mc-modal::-webkit-scrollbar {
+        width: 6px;
+    }
+    .mc-modal::-webkit-scrollbar-track {
+        background: #0a0510;
+    }
+    .mc-modal::-webkit-scrollbar-thumb {
+        background: #8a2be2;
+        border-radius: 0;
     }
 
     .mc-modal-overlay.active .mc-modal {
