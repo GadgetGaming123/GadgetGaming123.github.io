@@ -766,6 +766,160 @@
     }
 
 
+    /* ============ CHARACTER DETAIL PAGE ============ */
+    .char-detail-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(2,6,14,0.93);
+        z-index: 110;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        padding: 24px;
+    }
+
+    .char-detail-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .char-detail-box {
+        position: relative;
+        width: min(640px, 94vw);
+        height: min(820px, 92vh);
+        background: #08050c;
+        border: 2px solid #8a2be2;
+        box-shadow:
+            0 0 24px rgba(138,43,226,0.5),
+            0 0 80px rgba(138,43,226,0.2),
+            inset 0 0 40px rgba(138,43,226,0.08);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        padding: 24px;
+        overflow: hidden;
+    }
+
+    .char-detail-title {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138,43,226,0.4), inset 0 0 16px rgba(138,43,226,0.15);
+        padding: 20px;
+    }
+
+    .char-detail-title h2 {
+        margin: 0;
+        font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: #d94bff;
+        text-shadow: 0 0 14px rgba(217,75,255,0.7);
+        text-align: center;
+    }
+
+    .char-detail-image-box {
+        grid-column: 2;
+        grid-row: 1;
+        position: relative;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138,43,226,0.4);
+        overflow: hidden;
+        background: #000000;
+    }
+
+    .char-detail-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+    }
+
+    .char-detail-image-box img.visible {
+        opacity: 1;
+    }
+
+    .char-detail-text {
+        overflow-y: auto;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 1.7;
+        scrollbar-width: thin;
+        scrollbar-color: #8a2be2 #0a0510;
+    }
+
+    .char-detail-text::-webkit-scrollbar {
+        width: 6px;
+    }
+    .char-detail-text::-webkit-scrollbar-track {
+        background: #0a0510;
+    }
+    .char-detail-text::-webkit-scrollbar-thumb {
+        background: #8a2be2;
+    }
+
+    .char-detail-text-left {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .char-detail-text-right {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .char-detail-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        z-index: 5;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(20,8,30,0.9);
+        border: 1px solid #8a2be2;
+        color: #d9b3ff;
+        font-size: 17px;
+        font-family: 'Share Tech Mono', monospace;
+        cursor: pointer;
+    }
+
+    .char-detail-close:hover {
+        background: rgba(138,43,226,0.25);
+    }
+
+    .char-flip-clone {
+        position: fixed;
+        z-index: 120;
+        object-fit: cover;
+        pointer-events: none;
+        transition: left 0.4s ease, top 0.4s ease, width 0.4s ease, height 0.4s ease;
+    }
+
+    @media screen and (max-width: 640px) {
+        .char-detail-box {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto 1fr 1fr;
+            overflow-y: auto;
+        }
+        .char-detail-title { grid-column: 1; grid-row: 1; }
+        .char-detail-image-box { grid-column: 1; grid-row: 2; height: 220px; }
+        .char-detail-text-left { grid-column: 1; grid-row: 3; }
+        .char-detail-text-right { grid-column: 1; grid-row: 4; }
+    }
+
     /* ============ MINECRAFT PROJECTS MODAL (purple) ============ */
     .mc-modal-overlay {
         position: fixed;
@@ -1513,6 +1667,25 @@
         </div>
     </div>
 
+    <!-- ============ CHARACTER DETAIL PAGE ============ -->
+    <div class="char-detail-overlay" id="charDetailOverlay">
+        <div class="char-detail-box">
+            <div class="char-detail-close" id="charDetailClose">&times;</div>
+            <div class="char-detail-title">
+                <h2 id="charDetailTitle">TITLE TEXT</h2>
+            </div>
+            <div class="char-detail-image-box">
+                <img id="charDetailImage" src="" alt="Character">
+            </div>
+            <div class="char-detail-text char-detail-text-left" id="charDetailTextLeft">
+                Sample text Sample text Sample text Sample text Sample text Text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Text Sample text Sample text Sample text Sample text Sample text
+            </div>
+            <div class="char-detail-text char-detail-text-right" id="charDetailTextRight">
+                Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample
+            </div>
+        </div>
+    </div>
+
     <!-- ============ MINECRAFT PROJECTS MODAL ============ -->
     <div class="mc-modal-overlay" id="mcModalOverlay">
         <div class="mc-modal">
@@ -1576,6 +1749,75 @@
     <img src="websitefisherman.png" class="custom-image-fisherman">
 
     <script>
+        (function () {
+            const charOverlay = document.getElementById('charDetailOverlay');
+            const charClose = document.getElementById('charDetailClose');
+            const charTitle = document.getElementById('charDetailTitle');
+            const charImage = document.getElementById('charDetailImage');
+            const charImageBox = document.querySelector('.char-detail-image-box');
+            const charTextLeft = document.getElementById('charDetailTextLeft');
+            const charTextRight = document.getElementById('charDetailTextRight');
+
+            function closeCharDetail() {
+                charOverlay.classList.remove('active');
+                charImage.classList.remove('visible');
+            }
+
+            document.querySelectorAll('.mc-modal-cell img').forEach((thumb) => {
+                thumb.addEventListener('click', () => {
+                    const sourceRect = thumb.getBoundingClientRect();
+
+                    // fill in content (title/text are placeholders for now,
+                    // swap these for real per-character data later)
+                    charTitle.textContent = thumb.alt || 'TITLE TEXT';
+                    charImage.src = thumb.src;
+                    charImage.classList.remove('visible');
+                    charTextLeft.textContent = charTextLeft.textContent; // placeholder, unchanged per-character for now
+                    charTextRight.textContent = charTextRight.textContent;
+
+                    // show the overlay/box first (fades in), but keep the
+                    // real detail image hidden until the flying clone arrives
+                    charOverlay.classList.add('active');
+
+                    // measure the target slot after the box has laid out
+                    requestAnimationFrame(() => {
+                        const targetRect = charImageBox.getBoundingClientRect();
+
+                        const clone = document.createElement('img');
+                        clone.src = thumb.src;
+                        clone.className = 'char-flip-clone';
+                        clone.style.left = sourceRect.left + 'px';
+                        clone.style.top = sourceRect.top + 'px';
+                        clone.style.width = sourceRect.width + 'px';
+                        clone.style.height = sourceRect.height + 'px';
+                        document.body.appendChild(clone);
+
+                        // force reflow so the transition below actually animates
+                        void clone.offsetWidth;
+
+                        clone.style.left = targetRect.left + 'px';
+                        clone.style.top = targetRect.top + 'px';
+                        clone.style.width = targetRect.width + 'px';
+                        clone.style.height = targetRect.height + 'px';
+
+                        clone.addEventListener('transitionend', function onEnd() {
+                            clone.removeEventListener('transitionend', onEnd);
+                            clone.remove();
+                            charImage.classList.add('visible');
+                        });
+                    });
+                });
+            });
+
+            charClose.addEventListener('click', closeCharDetail);
+            charOverlay.addEventListener('click', (e) => {
+                if (e.target === charOverlay) closeCharDetail();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeCharDetail();
+            });
+        })();
+
         (function () {
             const mcOverlay = document.getElementById('mcModalOverlay');
             const mcCloseBtn = document.getElementById('mcModalClose');
