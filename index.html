@@ -903,9 +903,19 @@
     .char-flip-clone {
         position: fixed;
         z-index: 120;
-        object-fit: cover;
         pointer-events: none;
+        background: #000000;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138,43,226,0.4);
+        overflow: hidden;
         transition: left 0.4s ease, top 0.4s ease, width 0.4s ease, height 0.4s ease;
+    }
+
+    .char-flip-clone img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     @media screen and (max-width: 640px) {
@@ -1002,13 +1012,13 @@
         position: relative;
         z-index: 4;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr;
         gap: 24px;
     }
 
     .mc-modal-cell {
         position: relative;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 3 / 1;
         background: #000000;
         border: 2px solid #8a2be2;
         box-shadow: 0 0 6px rgba(138,43,226,0.35), inset 0 0 10px rgba(138,43,226,0.15);
@@ -1019,42 +1029,23 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 140%;
-        height: 140%;
-        transform: translate(-50%, calc(-50% + 3px));
-        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
         display: block;
         z-index: 5;
-        clip-path: inset(0 calc(14.3% + 2px) calc(14.3% + 2px) 0);
     }
 
-    .mc-modal-cell img[src="mc-char8.png"] {
-        clip-path: inset(0 0 calc(14.3% + 2px) 0);
-    }
-
-    .mc-modal-cell img[src="mc-char9.png"] {
-        width: 122%;
-        height: 122%;
-        transform: translate(-50%, calc(-50% + 9px));
-        clip-path: inset(0 calc(14.3% + 2px) 0 0);
-    }
-
-    .mc-modal-cell img[src="mc-char5.png"] {
+    .mc-modal-cell img[src="mc-char8.png"],
+    .mc-modal-cell img[src="mc-char9.png"],
+    .mc-modal-cell img[src="mc-char5.png"],
+    .mc-modal-cell img[src="mc-char6.png"],
+    .mc-modal-cell img[src="mc-char7.png"] {
         width: 100%;
         height: 100%;
         transform: translate(-50%, -50%);
         clip-path: none;
-    }
-
-    .mc-modal-cell img[src="mc-char6.png"] {
-        width: 113.4%;
-        height: 126%;
-        transform: translate(calc(-50% + 2px), calc(-50% + 2px));
-        clip-path: inset(0 calc(5.91% + 2px) calc(10.32% + 2px) 0);
-    }
-
-    .mc-modal-cell img[src="mc-char7.png"] {
-        transform: translate(calc(-50% + 8px), calc(-50% + 3px));
     }
 
     .mc-modal-close {
@@ -1765,7 +1756,8 @@
 
             document.querySelectorAll('.mc-modal-cell img').forEach((thumb) => {
                 thumb.addEventListener('click', () => {
-                    const sourceRect = thumb.getBoundingClientRect();
+                    const sourceCell = thumb.closest('.mc-modal-cell');
+                    const sourceRect = sourceCell.getBoundingClientRect();
 
                     // fill in content (title/text are placeholders for now,
                     // swap these for real per-character data later)
@@ -1783,13 +1775,17 @@
                     requestAnimationFrame(() => {
                         const targetRect = charImageBox.getBoundingClientRect();
 
-                        const clone = document.createElement('img');
-                        clone.src = thumb.src;
+                        const clone = document.createElement('div');
                         clone.className = 'char-flip-clone';
                         clone.style.left = sourceRect.left + 'px';
                         clone.style.top = sourceRect.top + 'px';
                         clone.style.width = sourceRect.width + 'px';
                         clone.style.height = sourceRect.height + 'px';
+
+                        const cloneImg = document.createElement('img');
+                        cloneImg.src = thumb.src;
+                        clone.appendChild(cloneImg);
+
                         document.body.appendChild(clone);
 
                         // force reflow so the transition below actually animates
