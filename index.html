@@ -641,6 +641,98 @@
         background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0));
     }
 
+    /* ============ SUBSCRIPTIONS / ART GIFTED ============ */
+    .subs-wrap {
+        width: 62%;
+        position: relative;
+        z-index: 5;
+        margin: 40px auto 60px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    @media screen and (max-width: 768px) {
+        .subs-wrap { width: 92%; flex-direction: column; }
+    }
+
+    .subs-box {
+        flex: 1;
+        background: rgba(6,14,26,0.9);
+        border: 1px solid var(--holo-dim);
+        box-shadow: 0 0 14px rgba(53,212,255,0.15);
+        min-width: 0;
+    }
+
+    .subs-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        background: rgba(20,60,100,0.55);
+        border-bottom: 2px solid var(--holo);
+    }
+
+    .subs-header img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+    }
+
+    .subs-header h3 {
+        margin: 0;
+        color: #ffffff;
+        font-family: 'Rajdhani', 'Exo 2', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .subs-list {
+        list-style: none;
+        margin: 0;
+        padding: 14px 18px;
+        font-size: 13px;
+        max-height: 420px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--holo-dim) #0a121e;
+    }
+
+    .subs-list::-webkit-scrollbar {
+        width: 6px;
+    }
+    .subs-list::-webkit-scrollbar-track {
+        background: #0a121e;
+    }
+    .subs-list::-webkit-scrollbar-thumb {
+        background: var(--holo-dim);
+    }
+
+    .subs-list li {
+        position: relative;
+        padding-left: 14px;
+        margin-bottom: 4px;
+        color: #4aa8ff;
+        text-decoration: underline;
+        text-decoration-color: rgba(74,168,255,0.5);
+    }
+
+    .subs-list li::before {
+        content: '-';
+        position: absolute;
+        left: 0;
+        color: var(--text-dim);
+        text-decoration: none;
+    }
+
+    .subs-empty-note {
+        padding: 30px 18px;
+        color: var(--text-dim);
+        font-size: 13px;
+        text-align: center;
+        font-style: italic;
+    }
+
     /* ============ MY PROJECTS ============ */
     .projects-wrap {
         width: 62%;
@@ -1666,6 +1758,56 @@
             <div class="projects-cell">
                 <h3>TBD</h3>
             </div>
+        </div>
+    </div>
+
+    <!-- ============ SUBSCRIPTIONS / ART GIFTED ============ -->
+    <div class="subs-wrap">
+        <div class="subs-box">
+            <div class="subs-header">
+                <img src="youtube-icon2.png" alt="">
+                <h3>My Subscriptions</h3>
+            </div>
+            <ul class="subs-list">
+                <li>100 questions with Tom Simons</li>
+                <li>Any Austin</li>
+                <li>Chris and Jack</li>
+                <li>Chuckle Sandwich</li>
+                <li>CyberChimp</li>
+                <li>David Achu</li>
+                <li>Deepaseph gamer</li>
+                <li>Doobus Goobus</li>
+                <li>Drumsy</li>
+                <li>Gorbit</li>
+                <li>House Venturian</li>
+                <li>Joseppi</li>
+                <li>Markiplier</li>
+                <li>Matt Storer</li>
+                <li>Max Fosh</li>
+                <li>Mrwhosetheboss</li>
+                <li>penm</li>
+                <li>Ryan George</li>
+                <li>Shut Up I'm Talking</li>
+                <li>Slimecicle</li>
+                <li>Slimecicle VODS</li>
+                <li>Slmcel_j</li>
+                <li>Solid_g</li>
+                <li>Ted Nivison</li>
+                <li>The Stupendium</li>
+                <li>ThePenyGod</li>
+                <li>Tom Cardy</li>
+                <li>Tom Simons</li>
+                <li>TommyInnit</li>
+                <li>VenturianTale</li>
+                <li>War of the Worlds Game</li>
+            </ul>
+        </div>
+        <div class="subs-box">
+            <div class="subs-header">
+                <img src="pencil-icon.png" alt="">
+                <h3>Art gifted to me!</h3>
+            </div>
+            <div class="subs-empty-note">Coming soon</div>
         </div>
     </div>
 
