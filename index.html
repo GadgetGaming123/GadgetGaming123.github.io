@@ -742,6 +742,27 @@
         font-style: italic;
     }
 
+    .art-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .art-gallery img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border: 1px solid var(--holo-dim);
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .art-gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(53,212,255,0.4);
+    }
+
     /* ============ MY PROJECTS ============ */
     .projects-wrap {
         width: 62%;
@@ -1816,7 +1837,8 @@
                 <img src="pencil-icon.png" alt="">
                 <h3>Art gifted to me!</h3>
             </div>
-            <div class="subs-empty-note">Coming soon</div>
+            <div class="art-gallery" id="artGallery"></div>
+            <div class="subs-empty-note" id="artGalleryEmpty" style="display:none;">Coming soon</div>
         </div>
     </div>
 
@@ -1914,6 +1936,49 @@
     <img src="websitefisherman.png" class="custom-image-fisherman">
 
     <script>
+        (function () {
+            // ============ ART GIFTED AUTO-GALLERY ============
+            // Drop image files into this folder in your GitHub repo and they
+            // will automatically appear here — no HTML editing required.
+            const GITHUB_OWNER = 'GadgetGaming123';
+            const GITHUB_REPO = 'GadgetGaming123.github.io';
+            const GITHUB_FOLDER = 'art-gifted';
+
+            const gallery = document.getElementById('artGallery');
+            const emptyNote = document.getElementById('artGalleryEmpty');
+            const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+
+            function isImageFile(name) {
+                const lower = name.toLowerCase();
+                return IMAGE_EXTENSIONS.some(ext => lower.endsWith(ext));
+            }
+
+            fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`)
+                .then(res => {
+                    if (!res.ok) throw new Error('Folder not found or API unavailable');
+                    return res.json();
+                })
+                .then(files => {
+                    const images = files.filter(f => f.type === 'file' && isImageFile(f.name));
+                    if (images.length === 0) {
+                        emptyNote.style.display = 'block';
+                        return;
+                    }
+                    images.forEach(file => {
+                        const img = document.createElement('img');
+                        img.src = file.download_url;
+                        img.alt = file.name;
+                        img.addEventListener('click', () => {
+                            window.open(file.download_url, '_blank', 'noopener,noreferrer');
+                        });
+                        gallery.appendChild(img);
+                    });
+                })
+                .catch(() => {
+                    emptyNote.style.display = 'block';
+                });
+        })();
+
         (function () {
             const charOverlay = document.getElementById('charDetailOverlay');
             const charClose = document.getElementById('charDetailClose');
