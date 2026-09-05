@@ -649,7 +649,7 @@
         margin: 40px auto 60px;
         display: flex;
         gap: 20px;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     @media screen and (max-width: 768px) {
@@ -658,6 +658,8 @@
 
     .subs-box {
         flex: 1;
+        display: flex;
+        flex-direction: column;
         background: rgba(6,14,26,0.9);
         border: 1px solid var(--holo-dim);
         box-shadow: 0 0 14px rgba(53,212,255,0.15);
@@ -692,7 +694,8 @@
         margin: 0;
         padding: 14px 18px;
         font-size: 13px;
-        max-height: 420px;
+        flex: 1;
+        min-height: 0;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: var(--holo-dim) #0a121e;
@@ -740,13 +743,23 @@
         font-size: 13px;
         text-align: center;
         font-style: italic;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .art-gallery {
         display: flex;
         flex-wrap: wrap;
+        align-content: flex-start;
         gap: 10px;
         padding: 14px;
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--holo-dim) #0a121e;
     }
 
     .art-gallery img {
